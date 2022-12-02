@@ -8,12 +8,14 @@
 
 body, div, article, aside, footer, header, main, nav, section, ul, ol, li, button, figure, picture, hr {
     display: flex;
+    
 }
 
 body {
     margin: 0;
     flex-direction: column;
-    background-color: var(--bg-color);
+    background-color: var(--black);
+    color: var(--white);
     > main {
         min-height: calc(100vh - 400px);
     }

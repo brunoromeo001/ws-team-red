@@ -1,0 +1,213 @@
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Light"), url("../fonts/OpenSans-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans SemiBold"), url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), url("../fonts/OpenSans-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Nothing";
+  src: local("Nothing You Could Do"), url("../fonts/NothingYouCouldDo-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Teko";
+  src: local("Teko"), url("../fonts/Teko-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+:root {
+  --white: #FFF;
+  --black: #000;
+  --black-hover: #111;
+  --black-active: #222;
+  --black-10: #0000001a;
+  --black-50: rgba(0, 0, 0, .5);
+  --black-75: #000000bf;
+  --dark-0: #333;
+  --dark-1: #000000BF;
+  --gray: #79756C;
+  --gray-0: #707070;
+  --gray-1: #7E7E7E;
+  --gray-2: #9A9A99;
+  --gray-3: #CCC;
+  --gray-4: #00000029;
+  --gray-5: #E5E3DFBF;
+  --gray-6: #F8F8F8;
+  --gray-7: #E5E3DF;
+  --gray-8: #DDD;
+  --gray-9: #999;
+  --gray-10: #EEE;
+  --gray-11: #444;
+  --gray-12: #E8E8E8;
+  --red: rgba(255, 82 ,82, 0.7);
+  --red-hover: #E4423B;
+  --red-active: #e42323;
+  --green: #00994D;
+  --green-hover: #00BE60;
+  --green-active: #00773C;
+  --blue: #00A0E6;
+  --blue-hover: #1CABE9;
+  --blue-active: #199BD4;
+  --success: #D4EDDA;
+  --success-border: #C3E6CB;
+  --success-color: #155724;
+  --danger: #F8D7DA;
+  --danger-border: #F5C6CB;
+  --danger-color: #721C24;
+  --space: 20px;
+  --border-radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+}
+
+body, div, article, aside, footer, header, main, nav, section, ul, ol, li, button, figure, picture, hr {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  flex-direction: column;
+  background-color: var(--black);
+  color: var(--white);
+}
+body > main {
+  min-height: calc(100vh - 400px);
+}
+
+hr.divider {
+  background-color: var(--gray-3);
+  height: 1px;
+  width: calc(100% - 2em);
+  margin: 3em 0;
+  border: none;
+  align-self: center;
+}
+
+@media (min-width: 1200px) {
+  body > main {
+    min-height: calc(100vh - 341px);
+  }
+}
+#header {
+  background-image: url("../images/burgues-mibi.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  min-width: 320px;
+  min-height: 320px;
+  height: 40vh;
+  box-shadow: inset 0 0 0 2000px rgba(7, 12, 12, 0.5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+#header .logo {
+  position: absolute;
+  top: 20px;
+  right: calc(40vw - 36px);
+  z-index: 5;
+}
+
+section {
+  position: relative;
+}
+section #title {
+  width: 100%;
+  min-height: 80px;
+  color: var(--white);
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 2000px rgba(7, 12, 12, 0.55);
+  position: absolute;
+  margin-top: -80px;
+}
+section #title > h1 span {
+  color: red;
+}
+section main {
+  margin: 0px 30px;
+}
+section main .options {
+  margin-top: 20px;
+  flex-direction: column;
+}
+section main .options label {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+section main .options label .square {
+  width: 24px;
+  height: 24px;
+  border: var(--red) 1px solid;
+  justify-content: center;
+  align-items: center;
+}
+section main .options label .square > div {
+  width: 14px;
+  height: 14px;
+  background-color: var(--red);
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+section main .options label:hover .square {
+  border: var(--red-hover) 1px solid;
+}
+section main .options label:hover .square > div {
+  opacity: 0.2;
+}
+section main .options label input {
+  display: none;
+}
+section main .options label input:checked + .square > div {
+  opacity: 1;
+  background-color: var(--red-active);
+}
+section main .options label .content {
+  flex-direction: row;
+  padding-left: 10px;
+  font-size: 1em;
+  line-height: 1.5em;
+  width: 50%;
+  left: 70px;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px;
+  color: var(--red);
+}
+section main .options label .content .name {
+  margin-left: -10px;
+  font-weight: 600;
+}
+section main .options label .content .price {
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=main.css.map */
