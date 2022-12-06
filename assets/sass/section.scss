@@ -18,6 +18,7 @@ section{
   }
   main{
     margin: 0px 30px;
+    margin-bottom: 90px;
     .options{
       margin-top: 20px;
       flex-direction: column;
@@ -69,9 +70,9 @@ section{
             padding-left: 10px;
             font-size: 1em;          
             line-height: 1.5em;
-            width: 50%;
+            width: 80%;
             left: 70px;
-            position: fixed;
+            position: absolute;
             justify-content: space-between;
             align-items: center;
             border-bottom: solid 1px;
