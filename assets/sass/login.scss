@@ -1,0 +1,30 @@
+.page {
+
+   position: relative;
+   width: 300px;
+   height: 300px;
+   background: yellow;
+   top: 300px;
+   margin-left: 30px;
+
+   main {
+      margin: 0;
+      width: 168px;
+      height: 30px; 
+      background: yellow;
+
+   }
+
+   .title {
+      position: absolute;
+      background-color: blue;
+      font-family: Robote;
+      margin-left: 30px;
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      color: var(--white);
+      margin-top: 50%;
+   }
+
+}

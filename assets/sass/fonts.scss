@@ -32,3 +32,31 @@
     font-style: normal;
     font-weight: bolder;
 }
+
+@font-face {
+   font-family: 'Roboto';
+   src: local("Roboto-Light"), url("../fonts/static/Roboto-Light.ttf") format("truetype");
+   font-style: normal;
+   font-weight: 300;
+}
+
+@font-face {
+   font-family: 'Roboto';
+   src: local("Roboto-Regular"), url("../fonts/static/Roboto-Regular.ttf") format("truetype");
+   font-style: normal;
+   font-weight: 400;
+}
+
+@font-face {
+   font-family: 'Roboto';
+   src: local("Roboto-Medium"), url("../fonts/static/Roboto-Medium.ttf") format("truetype");
+   font-style: normal;
+   font-weight: 600;
+}
+
+@font-face {
+   font-family: 'Roboto';
+   src: local("Roboto-Bold"), url("../fonts/static/Roboto-Bold.ttf") format("truetype");
+   font-style: normal;
+   font-weight: bold;
+}

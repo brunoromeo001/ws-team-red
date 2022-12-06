@@ -28,6 +28,30 @@
   font-style: normal;
   font-weight: bolder;
 }
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto-Light"), url("../fonts/static/Roboto-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto-Regular"), url("../fonts/static/Roboto-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto-Medium"), url("../fonts/static/Roboto-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto-Bold"), url("../fonts/static/Roboto-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
 :root {
   --bg-color: #070D0D;
   --white: #FFF;
@@ -54,6 +78,7 @@
   --gray-10: #EEE;
   --gray-11: #444;
   --gray-12: #E8E8E8;
+  --gray-13: rgba(255, 118, 12, 0.25);
   --red: #E32119;
   --red-hover: #E4423B;
   --red-active: #C91D16;
@@ -87,8 +112,8 @@ body, div, article, aside, header, footer, main, nav, section, ul, ol, li, butto
 }
 
 body {
-  margin: 0;
   flex-direction: column;
+  margin: 0;
 }
 
 .title {
@@ -117,11 +142,37 @@ body {
 }
 .title .band {
   position: fixed;
+  margin-top: 350px;
   width: 100vw;
   height: 80px;
-  margin-top: 350px;
   background-color: var(--white-90);
-  z-index: 5;
+  z-index: 2;
+}
+
+.page {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: yellow;
+  top: 300px;
+  margin-left: 30px;
+}
+.page main {
+  margin: 0;
+  width: 168px;
+  height: 30px;
+  background: yellow;
+}
+.page .title {
+  position: relative;
+  background-color: blue;
+  font-family: Robote;
+  margin-left: 30px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: var(--white);
+  margin-top: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */

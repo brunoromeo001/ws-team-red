@@ -28,11 +28,11 @@
 
    .band {
       position: fixed;
+      margin-top: 350px;
       width: 100vw;
       height: 80px;
-      margin-top: 350px;
-      background-color:var(--white-90);
-      z-index: 5;
+      background-color: var(--white-90);
+      z-index: 2;
    }
 }
 
