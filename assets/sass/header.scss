@@ -1,0 +1,38 @@
+.title {
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   height: 71px;
+
+   img {
+      margin-top: 43px;
+      width: 158.9px;
+      height: 158.43px;
+   }
+
+   .text {
+      flex-direction: row;
+      font-family: Podkova;
+      font-weight: 400;
+      font-size: 64px;
+      line-height: 71px;
+   }
+
+   .char1 {
+      color: var(--orange);
+   }
+
+   .char2 {
+      color: var(--white);
+   }
+
+   .band {
+      position: fixed;
+      width: 100vw;
+      height: 80px;
+      margin-top: 350px;
+      background-color:var(--white-90);
+      z-index: 5;
+   }
+}
+
