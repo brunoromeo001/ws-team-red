@@ -1,24 +1,18 @@
 @font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Light"), url("../fonts/OpenSans-Light.ttf") format("truetype");
+  font-family: "Roboto";
+  src: local("Roboto Light"), url("../fonts/Roboto-Light.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-family: "Roboto";
+  src: local("Roboto Regular"), url("../fonts/Roboto-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans SemiBold"), url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 600;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), url("../fonts/OpenSans-Bold.ttf") format("truetype");
+  font-family: "Roboto";
+  src: local("Roboto Bold"), url("../fonts/Roboto-Bold.ttf") format("truetype");
   font-style: normal;
   font-weight: bold;
 }
@@ -81,7 +75,7 @@
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: "Open Sans";
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
 }
@@ -118,22 +112,38 @@ hr.divider {
   background-image: url("../images/burgues-mibi.png");
   background-repeat: no-repeat;
   width: 100%;
-  min-width: 320px;
-  min-height: 320px;
-  height: 40vh;
+  height: 290px;
   box-shadow: inset 0 0 0 2000px rgba(7, 12, 12, 0.5);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
+  z-index: 1;
 }
-#header .logo {
+#header .logo-mobile {
   position: absolute;
-  top: 20px;
+  top: 55px;
   right: calc(40vw - 36px);
-  z-index: 5;
+}
+#header .logo-desktop {
+  display: none;
 }
 
+@media (min-width: 900px) {
+  #header {
+    background-image: url("../images/burgues.png");
+    width: 100%;
+  }
+  #header .logo-mobile {
+    display: none;
+  }
+  #header .logo-desktop {
+    display: flex;
+    position: absolute;
+    top: 55px;
+    right: calc(50vw - 36px);
+  }
+}
 section {
   position: relative;
 }
@@ -143,15 +153,15 @@ section #title {
   color: var(--white);
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 2000px rgba(7, 12, 12, 0.55);
+  background-color: rgba(255, 255, 255, 0.1);
   position: absolute;
-  margin-top: -80px;
+  margin-top: 0px;
 }
 section #title > h1 span {
   color: red;
 }
 section main {
-  margin: 0px 30px;
+  margin: 80px 30px;
   margin-bottom: 90px;
 }
 section main .options {
@@ -201,7 +211,7 @@ section main .options label .content {
   position: absolute;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px;
+  border-bottom: dotted 2px;
   color: var(--red);
 }
 section main .options label .content .name {
@@ -212,182 +222,63 @@ section main .options label .content .price {
   font-weight: 600;
 }
 
+@media (min-width: 900px) {
+  section #title {
+    justify-content: left;
+  }
+  section #title h1 {
+    margin-left: 30px;
+  }
+  section main .options label .content {
+    width: 45%;
+  }
+}
 .page {
   flex-direction: column;
   height: calc(100vh - 140px);
   overflow: auto;
-  /* .page-title{
-    margin: var(--space);
-    width: calc(100% - calc(var(--space) * 2));
-  }
-  aside, aside.open {
-    width: 100%;
-    position: fixed;
-    z-index: 2;
-    right: 0;
-    bottom: 80px;
-    height: 50px;
-    background-color: var(--gray-12);
-    border-bottom: var(--gray-3) 1px solid;
-    flex-direction: column;
-    transition: all 0.2s ease-in-out;
-    header{
-      font-size: 2em;
-      color: var(--dark-0);
-      height: 130px;
-      justify-content: center;
-      align-items: center;
-      display: none;
-    }
-    section{
-      padding: 0 var(--space);
-      display: none;
-      flex: 1;
-      max-height: calc(100vh - 339px);
-      overflow: auto;
-      table{
-        border-collapse: collapse;
-        width: 100%;
-        border-bottom: var(--gray-3) 1px solid;
-        td{
-          padding: var(--space) 0;
-          border-top: var(--gray-3) 1px solid;
-          &.price{
-            text-align: right;
-          }
-        }
-      }
-    }
-    footer{
-      height: 50px;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--space);
-      font-size: 18px;
-      color: var(--dark-0);
-      .total{
-        font-weight: bold;
-        margin-left: var(--space);
-        text-align: right;
-      }
-      button{
-        @include button;
-        min-width: 50px;
-        width: 50px;
-        svg{
-          transform: rotate(0deg);
-          transition: all .3s ease-in-out;
-        }
-      }
-    }
-    &.open{
-      height: calc(100vh - 158px);
-      header, section{
-        display: flex;
-      }
-      footer{
-        button{
-          svg{
-            transform: rotate(180deg);
-            transition: all .3s ease-in-out;
-          }
-        }
-      }
-    }
-  }
-  > header{
-    width: 100%;
-    min-height: 130px;
-    background-color: var(--black);
-    color: var(--white);
-    justify-content: center;
-    align-items: center;
-    margin-top: 18px;
-    h1{
-      font-size: 23px;
-      font-weight: bold;
-      text-transform: uppercase;
-      small{
-        font-size: 14px;
-        font-weight: 600;
-        display: block;
-      }
-    }
-  }
-  > main{
-    flex-direction: column;
-    margin-bottom: 80px;
-    .toast{
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: 3;
-      &.open{
-        transform: translateY(-80px);
-      }
-    }
-  }
-
-  &.blue{
-    > header{
-      background-color: var(--blue);
-    }
-    footer.fixed{
-      button[type=submit], a.black{
-        @include button-blue
-      } 
-    }
-  }
-  &.green{
-    > header{
-      background-color: var(--green);
-    }
-    footer.fixed{
-      button[type=submit], a.black{
-        @include button-green
-      } 
-    }
-  } */
 }
-.page footer.order {
-  width: 100%;
+.page aside {
+  width: 100vw;
   position: fixed;
   color: #1F2525;
   bottom: 0;
   background-color: #FFF;
   height: 80px;
-  left: 0;
-  justify-content: space-between;
-  align-items: center;
   z-index: 4;
 }
-.page footer.order .left {
-  justify-content: space-between;
-  align-items: center;
+.page aside header, .page aside section, .page aside .footer-btn {
+  display: none;
+}
+.page aside .order {
+  width: 100%;
   flex-direction: row;
+}
+.page aside .order .left {
+  align-items: center;
   font-weight: 600;
   font-size: 15px;
   margin-left: 10px;
+  width: 100%;
 }
-.page footer.order .left > .text {
+.page aside .order .left > .text {
   justify-content: space-between;
   align-items: left;
   flex-direction: column;
   margin-left: 15px;
 }
-.page footer.order .left > .text strong {
+.page aside .order .left > .text strong {
   font-weight: 600;
 }
-.page footer.order .right {
-  width: 50%;
+.page aside .order .right {
+  width: 110%;
   height: 80px;
   background-color: #E3E3E3;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
-.page footer.order .right .price {
+.page aside .order .right .price {
   text-transform: uppercase;
   justify-content: space-between;
   align-items: center;
@@ -396,11 +287,11 @@ section main .options label .content .price {
   font-weight: 600;
   font-size: 22px;
 }
-.page footer.order .right .price > small {
+.page aside .order .right .price > small {
   font-size: 10px;
   margin-right: -40px;
 }
-.page footer.order .right .icon {
+.page aside .order .right .icon {
   float: right;
   background-color: red;
   width: 100px;
@@ -408,19 +299,117 @@ section main .options label .content .price {
   align-items: center;
   flex-direction: column;
 }
-.page footer.order .right .icon:hover {
+.page aside .order .right .icon:hover {
   background-color: var(--red-active);
   cursor: pointer;
 }
-.page footer.order .right .icon svg {
+.page aside .order .right .icon svg {
   margin-top: 20px;
 }
-.page footer.order .right .icon a {
+.page aside .order .right .icon a {
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 14px;
   color: white;
   text-decoration: none;
+}
+
+.btn {
+  min-width: 130px;
+  border: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: transparent;
+  color: var(--black);
+  background-color: var(--red-1);
+  color: var(--white);
+}
+.btn:hover {
+  background-color: var(--black-10);
+}
+.btn:active {
+  background-color: var(--black-75);
+}
+.btn:hover {
+  background-color: var(--red-hover);
+}
+.btn:active {
+  background-color: var(--red-active);
+}
+
+@media (min-width: 900px) {
+  .page aside {
+    width: 300px;
+    height: 100vh;
+    margin-left: calc(100vw - 300px);
+    flex-direction: column;
+  }
+  .page aside header, .page aside section, .page aside .footer-btn {
+    display: flex;
+  }
+  .page aside section {
+    margin-top: 30px;
+    width: 100%;
+    height: 1;
+    display: block;
+    flex-wrap: wrap;
+    left: 10px;
+  }
+  .page aside section .content {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+    line-height: 1.5em;
+    width: 90%;
+    border-bottom: dotted 2px;
+  }
+  .page aside section .content span {
+    font-weight: 600;
+  }
+  .page aside section .content + .content {
+    padding-top: 20px;
+  }
+  .page aside .footer-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #1F2525;
+    width: calc(100% - 300px);
+    height: 80px;
+    padding: 12px;
+  }
+  .page aside .order {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+  }
+  .page aside .order .left {
+    display: none;
+  }
+  .page aside .order .right {
+    width: 100%;
+  }
+  .page aside .text {
+    margin-top: 6px;
+    align-items: left;
+    flex-direction: column;
+  }
+  .page aside .text strong {
+    font-weight: 600;
+  }
+  .page aside .text small {
+    font-size: 18px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

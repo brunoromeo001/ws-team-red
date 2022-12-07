@@ -2,20 +2,37 @@
   background-image: url('../images/burgues-mibi.png');
   background-repeat: no-repeat;
   width: 100%;
-  min-width: 320px;
-  min-height: 320px;
-  height: 40vh;
+  height: 290px;
   box-shadow: inset 0 0 0 2000px rgba(7, 12, 12, 0.5);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  
-  .logo{
+  z-index: 1;  
+  .logo-mobile{
     position: absolute;    
-    top: 20px;
+    top: 55px;
     right: calc(40vw - 36px);
-    z-index: 5;
+  }
+  .logo-desktop{
+    display: none;
+  }
+}
+
+@media(min-width: 900px){
+  #header{
+    background-image: url('../images/burgues.png');
+    width: 100%;
+    .logo-mobile{
+      display: none;
+    }
+    .logo-desktop{
+      display: flex;
+      position: absolute;    
+      top: 55px;
+      right: calc(50vw - 36px);
+    }
+  
   }
 }
 
