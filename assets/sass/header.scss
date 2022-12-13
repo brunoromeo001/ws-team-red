@@ -17,6 +17,9 @@
   .logo-desktop{
     display: none;
   }
+  .logo-desktop-app{
+    display: none;
+  }
 }
 
 @media(min-width: 900px){
@@ -38,7 +41,6 @@
       top: 55px;
       right: calc(50vw - 36px);
     }
-
   
   }
 }
