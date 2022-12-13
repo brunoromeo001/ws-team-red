@@ -30,8 +30,15 @@
       display: flex;
       position: absolute;    
       top: 55px;
+      right: calc(38vw - 36px);
+    }
+    .logo-desktop-app{
+      display: flex;
+      position: absolute;    
+      top: 55px;
       right: calc(50vw - 36px);
     }
+
   
   }
 }
