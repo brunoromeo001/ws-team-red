@@ -33,12 +33,13 @@
   --black: #000;
   --black-hover: #111;
   --black-active: #222;
-  --black-band: #3A1C1C;
   --black-10: #0000001a;
   --black-50: rgba(0, 0, 0, .5);
   --black-75: #000000bf;
   --dark-0: #333;
   --dark-1: #000000BF;
+  --dark-band: #3A1C1C;
+  --dark-background: #250303;
   --gray: #79756C;
   --gray-0: #707070;
   --gray-1: #7E7E7E;
@@ -54,7 +55,6 @@
   --gray-11: #444;
   --gray-12: #E8E8E8;
   --red: rgba(255, 82 ,82, 0.7);
-  --red-1: rgba(221, 14, 14, 1);
   --red-auth: #DD0E0E;
   --red-button-auth:rgba(221, 14, 14, 0.54);
   --red-hover: #E4423B;
@@ -533,8 +533,8 @@ section main .options label .content .price {
 
 #body-auth {
   position: relative;
-  background-color: #250303;
-  background-image: url("../images/backgrond-mobile.png");
+  background-color: var(--dark-background);
+  background-image: url("../images/backgrond-auth.png");
 }
 
 #header-auth {
@@ -554,7 +554,7 @@ section main .options label .content .price {
 
 .band-auth {
   min-width: 380px;
-  background-color: var(--black-band);
+  background-color: var(--dark-band);
   position: absolute;
   justify-content: center;
   width: 100vw;
@@ -670,7 +670,7 @@ section main .options label .content .price {
 }
 .band-forget {
   min-width: 380px;
-  background-color: var(--black-band);
+  background-color: var(--dark-band);
   position: absolute;
   justify-content: center;
   width: 100vw;
@@ -781,7 +781,7 @@ section main .options label .content .price {
 }
 .band-registration {
   min-width: 380px;
-  background-color: var(--black-band);
+  background-color: var(--dark-band);
   position: absolute;
   justify-content: center;
   width: 100vw;
@@ -894,6 +894,36 @@ section main .options label .content .price {
     justify-content: center;
     top: 43px;
   }
+}
+.img-profile {
+  display: block;
+  right: 0px;
+  position: absolute;
+  justify-content: end;
+  align-items: flex-start;
+  margin: 0;
+}
+
+#order-ticket {
+  min-width: 400px;
+  width: 100%;
+  margin-bottom: 31px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#order-ticket .box-orders {
+  width: 100%;
+  display: flex;
+  height: 80px;
+  background-color: var(--black-1);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 400;
+  font-family: "Roboto";
 }
 
 /*# sourceMappingURL=main.css.map */
