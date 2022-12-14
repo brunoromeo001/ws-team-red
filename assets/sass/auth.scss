@@ -1,154 +1,154 @@
 #body-auth {
-  position: relative;                                         
-  background-color: #250303;                                
-  background-image: url('../images/backgrond-mobile.png');
+   position: relative;                                         
+   background-color: var(--dark-background);                                
+   background-image: url('../images/backgrond-auth.png');    
 }
 
 #header-auth {
-  flex-direction: row;                      
-  justify-content: center;                  
-  min-width: 380px;                         
-  width: 100vw;                             
-  height: 350px;                            
+   flex-direction: row;                      
+   justify-content: center;                  
+   min-width: 380px;                         
+   width: 100vw;                             
+   height: 350px;                            
 
-  .logo-mobile-auth {
-     position: absolute;                    
-     top: 43px;                             
-  }
+   .logo-mobile-auth {
+      position: absolute;                    
+      top: 43px;                             
+   }
 
-  .logo-desktop-auth {
-     display: none;                         
-  }
+   .logo-desktop-auth {
+      display: none;                         
+   }
 }
 
 .band-auth {
-  min-width: 380px;                         
-  background-color: var(--black-band);              
-  position: absolute;                       
-  justify-content: center;                  
-  width: 100vw;                             
-  height: 80px;                             
-  top: 350px;                               
+   min-width: 380px;                         
+   background-color: var(--dark-band);              
+   position: absolute;                       
+   justify-content: center;                  
+   width: 100vw;                             
+   height: 80px;                             
+   top: 350px;                               
 
-  .buttons-auth {
-     position: absolute;                    
- 
-     .btn-login-auth {
-        position: relative;                 
-        display: flex;                      
-        justify-content: center;            
-        align-items: center;   
-        background-color: var(--red-auth);
-        color: var(--black);                
-        width: 175px;                       
-        height: 64px;                       
-        top: 16px;                          
-        border-top-left-radius: 10px;       
-        border-top-right-radius: 10px;      
-        text-decoration: none;              
-     }
-     
-     .btn-cadastro-auth {
-        position: relative;                             
-        display: flex;                                  
-        justify-content: center;                        
-        align-items: center;      
-        background-color: var(--red-button-auth);    
-        border-color: var(--red-button-auth);      
-        color: var(--black);                            
-        width: 175px;                                   
-        height: 64px;                                   
-        top: 16px;                                      
-        border-top-left-radius: 10px;                   
-        border-top-right-radius: 10px;                  
-        text-decoration: none;                          
-     }
-  }
+   .buttons-auth {
+      position: absolute;                    
   
-  .form-auth {
-     width: 350px;                          
-     height: 212px;                         
-     margin-top: 80px;                      
-     position: absolute;                    
-     display: flex;                         
-     flex-direction: column;                
-     padding-top: 40px;                     
-     background-color: var(--red-auth);           
-     border-bottom-left-radius: 10px;       
-     border-bottom-right-radius: 10px;      
+      .btn-login-auth {
+         position: relative;                 
+         display: flex;                      
+         justify-content: center;            
+         align-items: center;   
+         background-color: var(--red-auth);
+         color: var(--black);                
+         width: 175px;                       
+         height: 64px;                       
+         top: 16px;                          
+         border-top-left-radius: 10px;       
+         border-top-right-radius: 10px;      
+         text-decoration: none;              
+      }
+      
+      .btn-cadastro-auth {
+         position: relative;                             
+         display: flex;                                  
+         justify-content: center;                        
+         align-items: center;      
+         background-color: var(--red-button-auth);    
+         border-color: var(--red-button-auth);      
+         color: var(--black);                            
+         width: 175px;                                   
+         height: 64px;                                   
+         top: 16px;                                      
+         border-top-left-radius: 10px;                   
+         border-top-right-radius: 10px;                  
+         text-decoration: none;                          
+      }
+   }
+   
+   .form-auth {
+      width: 350px;                          
+      height: 212px;                         
+      margin-top: 80px;                      
+      position: absolute;                    
+      display: flex;                         
+      flex-direction: column;                
+      padding-top: 40px;                     
+      background-color: var(--red-auth);           
+      border-bottom-left-radius: 10px;       
+      border-bottom-right-radius: 10px;      
 
 
-     .field-auth {
-        position: relative;                 
-        flex-direction: column;             
-        margin-bottom: var(--space);        
-        background-color: var(--red-auth);        
+      .field-auth {
+         position: relative;                 
+         flex-direction: column;             
+         margin-bottom: var(--space);        
+         background-color: var(--red-auth);        
 
-        .input-auth {
-           background-color: var(--white);  
-           width: 280px;                    
-           height: 50px;                    
-           margin-left: 35px;               
-           border: 1px solid var(--red-auth);     
-           border-radius: 10px;             
-           font-size: 14px;                 
-           padding-top: 35px;               
-           padding-left: 15px;              
-           padding-bottom: 10px;            
-        }
+         .input-auth {
+            background-color: var(--white);  
+            width: 280px;                    
+            height: 50px;                    
+            margin-left: 35px;               
+            border: 1px solid var(--red-auth);     
+            border-radius: 10px;             
+            font-size: 14px;                 
+            padding-top: 35px;               
+            padding-left: 15px;              
+            padding-bottom: 10px;            
+         }
 
-        label {
-           position: absolute;              
-           color: var(--black);             
-           font-size: 16px;                 
-           line-height: 18.75px;            
-           margin-left: 35px;               
-           padding-top: 10px;               
-           padding-left: 15px;              
-        }
-     }
+         label {
+            position: absolute;              
+            color: var(--black);             
+            font-size: 16px;                 
+            line-height: 18.75px;            
+            margin-left: 35px;               
+            padding-top: 10px;               
+            padding-left: 15px;              
+         }
+      }
 
-     .send-auth {
-        position: absolute;                 
-        background-color: #101D1D;       
-        border-color: #101D1D;           
-        color: white;                    
-        width: 110px;                       
-        height: 48px;                       
-        font-size: 14px;                    
-        line-height: 16.41px;               
-        border-radius: 10px;                
-        margin-top: 149px;                  
-        margin-left: 206px;                 
-        cursor: pointer;                    
-     }
+      .send-auth {
+         position: absolute;                 
+         background-color: #101D1D;       
+         border-color: #101D1D;           
+         color: white;                    
+         width: 110px;                       
+         height: 48px;                       
+         font-size: 14px;                    
+         line-height: 16.41px;               
+         border-radius: 10px;                
+         margin-top: 149px;                  
+         margin-left: 206px;                 
+         cursor: pointer;                    
+      }
 
-     .forget-auth {
-        background-color: var(--red-auth);       
-        color: var(--white);               
-        width: 120px;                      
-        height: 16px;                      
-        font-size: 14px;                   
-        line-height: 16.41px;              
-        text-decoration: none;             
-        margin-left: 35px;                 
-     }
-  }
+      .forget-auth {
+         background-color: var(--red-auth);       
+         color: var(--white);               
+         width: 120px;                      
+         height: 16px;                      
+         font-size: 14px;                   
+         line-height: 16.41px;              
+         text-decoration: none;             
+         margin-left: 35px;                 
+      }
+   }
 }
 
 @media (min-width: 1200px) {
 
-  #header-auth {
-  
-     .logo-mobile-auth {
-        display: none;
-     }
+   #header-auth {
+   
+      .logo-mobile-auth {
+         display: none;
+      }
 
-     .logo-desktop-auth {         
-        display: flex;
-        position: absolute;
-        justify-content: center;   
-        top: 43px;
-     }
-  }
+      .logo-desktop-auth {         
+         display: flex;
+         position: absolute;
+         justify-content: center;   
+         top: 43px;
+      }
+   }
 }

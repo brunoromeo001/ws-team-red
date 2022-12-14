@@ -1,8 +1,6 @@
-
-
 .band-forget {
    min-width: 380px;                         
-   background-color: var(--black-band);              
+   background-color: var(--dark-band);              
    position: absolute;                       
    justify-content: center;                  
    width: 100vw;                             
@@ -20,11 +18,11 @@
          background-color: var(--red-button-auth);    
          border-color: var(--red-button-auth);   
          color: var(--black);                
-         width: 175px;
-         height: 64px;
-         top: 16px;
-         border-top-left-radius: 10px;
-         border-top-right-radius: 10px;
+         width: 175px;                       
+         height: 64px;                       
+         top: 16px;                          
+         border-top-left-radius: 10px;       
+         border-top-right-radius: 10px;      
          text-decoration: none;              
       }
       
