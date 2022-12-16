@@ -107,6 +107,12 @@
               text-transform: uppercase;
               text-decoration: solid;
               cursor: pointer;
+              &:hover {
+                background-color: var(--red-hover);
+              }
+              &:active {
+                background-color: var(--red-active);
+              }
           }
       }
   }
