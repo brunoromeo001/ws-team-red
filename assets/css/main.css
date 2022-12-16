@@ -127,7 +127,7 @@ hr.divider {
 #header .logo-mobile {
   position: absolute;
   top: 55px;
-  right: calc(40vw - 36px);
+  right: calc(35vw - 36px);
 }
 #header .logo-desktop {
   display: none;
@@ -148,7 +148,7 @@ hr.divider {
     display: flex;
     position: absolute;
     top: 55px;
-    right: calc(38vw - 36px);
+    right: calc(35vw - 36px);
   }
   #header .logo-desktop-app {
     display: flex;
