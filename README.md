@@ -1,5 +1,5 @@
 # ws-team-red
-Trabalho final do curso WS
+Trabalho final do curso JSDeveloer
 
 ### Contribuidores
 - brunoromeo001
