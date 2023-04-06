@@ -1,8 +1,10 @@
-# ws-team-red
-Trabalho final do curso JSDeveloer
+# Turma JS-004
+Trabalho final do curso JS Develoer
 
 ### Contribuidores
-- brunoromeo001
-- guilhermeveni
-- maruanvitorino
-- jeas-github
+- Ataize Feitosa
+- Bruno Romeo
+- Guilherme Magalhães
+- Maruan Vitorino
+- Pedro Ramos
+- Samual Gomes
