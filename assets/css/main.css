@@ -878,8 +878,8 @@ section main .options label .content .price {
 }
 .band-registration .form-registration .send-registration {
   position: absolute;
-  background-color: #101D1D;
-  border-color: #101D1D;
+  background-color: #101d1d;
+  border-color: #101d1d;
   color: white;
   width: 110px;
   height: 48px;
@@ -889,6 +889,9 @@ section main .options label .content .price {
   margin-top: 210px;
   margin-left: 206px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .band-registration .form-registration .forget-registration {
   background-color: var(--red-auth);

@@ -1,80 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-   <meta charset="UTF-8"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <title>HBurger - Equipe JS-004</title>
-   <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png" />
-   <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png" />
-   <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png" />
-   <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png" />
-   <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png" />
-   <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png" />
-   <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png" />
-   <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png" />
-   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png" />
-   <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png" />
-   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-   <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png" />
-   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
-   <link rel="manifest" href="manifest.json" />
-   <meta name="msapplication-TileColor" content="#ffffff" />
-   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-   <meta name="theme-color" content="#ffffff" />
-   <meta name="description" content="Projeto Final Turma JS-004" />
-   <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBurger - Equipe JS-004</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="assets/images/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="assets/images/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="assets/images/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="assets/images/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="assets/images/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="assets/images/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="assets/images/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="assets/images/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/images/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Projeto Final Turma JS-004" />
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
+  </head>
 
-<body id="body-auth">
-
+  <body id="body-auth" class="body-registration">
     <header id="header-auth">
-        
-         <div class="logo-mobile-auth">
+      <div class="logo-mobile-auth">
+        <a href="auth.html">
+          <img src="assets/images/logo-hburger-up.png" alt="Logo" />
+        </a>
+      </div>
 
-            <a href="auth.html">
-               <img src="assets/images/logo-hburger-up.png" alt="Logo" />
-            </a>
-         </div>
-
-         <div class="logo-desktop-auth">
-
-            <a href="auth.html">
-                <img src="assets/images/logo-side.png" alt="Logo" width="400px" />
-            </a>
-         </div>
+      <div class="logo-desktop-auth">
+        <a href="auth.html">
+          <img src="assets/images/logo-side.png" alt="Logo" width="400px" />
+        </a>
+      </div>
     </header>
 
     <main>
-
       <div class="band-registration">
+        <div class="buttons-registration">
+          <a href="auth.html" class="btn-login-registration">LOGIN</a>
+          <a href="#" class="btn-cadastro-registration">CADASTRO</a>
+        </div>
 
-         <div class="buttons-registration">
-            <a href="auth.html" class="btn-login-registration">LOGIN</a>            
-            <a href="#" class="btn-cadastro-registration">CADASTRO</a>
-         </div>
+        <form action="auth.html" class="form-registration">
+          <div class="field-registration">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="input-registration"
+            />
+            <label for="name">Nome</label>
+          </div>
 
-         <form action="auth.html" class="form-registration">
+          <div class="field-registration">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="input-registration"
+            />
+            <label for="email">E-mail</label>
+          </div>
 
-            <div class="field-registration">
-               <input type="text" name="name" id="name" class="input-registration" />
-               <label for="name">Nome</label>
-            </div>
-   
-            <div class="field-registration">
-               <input type="email" name="email" id="email" class="input-registration" />
-               <label for="email">E-mail</label>
-            </div>
+          <div class="field-registration">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="input-registration"
+            />
+            <label for="password">Senha</label>
+          </div>
 
-            <div class="field-registration">
-               <input type="password" name="password" id="password" class="input-registration" />
-               <label for="password">Senha</label>
-            </div>   
-  
-            <input type='submit' value='Enviar' class="send-registration" />
-
-         </form>     
+          <button type="submit" class="send-registration">Enviar</button>
+        </form>
       </div>
-    </main>  
-    <script src="assets/scripts/dist/index.js"></script>
-</body>
+    </main>
+    <script src="assets/scripts/dist/register.js" type="module"></script>
+  </body>
 </html>

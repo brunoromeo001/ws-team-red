@@ -1,131 +1,131 @@
 .band-registration {
-   min-width: 380px;                         
-   background-color: var(--dark-band);              
-   position: absolute;                       
-   justify-content: center;                  
-   width: 100vw;                             
-   height: 80px;                             
-   top: 300px;                               
+  min-width: 380px;
+  background-color: var(--dark-band);
+  position: absolute;
+  justify-content: center;
+  width: 100vw;
+  height: 80px;
+  top: 300px;
 
-   .buttons-registration {
-      position: absolute;                    
-  
-      .btn-login-registration {
-         position: relative;                 
-         display: flex;                      
-         justify-content: center;            
-         align-items: center;   
-         background-color: var(--red-button-auth);    
-         border-color: var(--red-button-auth);      
-         color: var(--black);                
-         width: 175px;                       
-         height: 64px;                       
-         top: 16px;                          
-         border-top-left-radius: 10px;       
-         border-top-right-radius: 10px;      
-         text-decoration: none;              
-      }
-      
-      .btn-cadastro-registration {
-         position: relative;                             
-         display: flex;                                  
-         justify-content: center;                        
-         align-items: center;      
-         background-color: var(--red-auth);
-         color: var(--black);                            
-         width: 175px;                                   
-         height: 64px;                                   
-         top: 16px;                                      
-         border-top-left-radius: 10px;                   
-         border-top-right-radius: 10px;                  
-         text-decoration: none;                          
-      }
-   }
-   
-   .form-registration {
-      width: 350px;                          
-      height: 273px;                         
-      margin-top: 80px;                      
-      position: absolute;                    
-      display: flex;                         
-      flex-direction: column;                
-      padding-top: 40px;                     
-      background-color: var(--red-auth);           
-      border-bottom-left-radius: 10px;       
-      border-bottom-right-radius: 10px;      
+  .buttons-registration {
+    position: absolute;
 
+    .btn-login-registration {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--red-button-auth);
+      border-color: var(--red-button-auth);
+      color: var(--black);
+      width: 175px;
+      height: 64px;
+      top: 16px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-decoration: none;
+    }
 
-      .field-registration {
-         position: relative;                 
-         flex-direction: column;             
-         margin-bottom: var(--space);        
-         background-color: var(--red-auth);        
+    .btn-cadastro-registration {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--red-auth);
+      color: var(--black);
+      width: 175px;
+      height: 64px;
+      top: 16px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-decoration: none;
+    }
+  }
 
-         .input-registration {
-            background-color: var(--white);  
-            width: 280px;                    
-            height: 50px;                    
-            margin-left: 35px;               
-            border: 1px solid var(--red-auth);     
-            border-radius: 10px;             
-            font-size: 14px;                 
-            padding-top: 35px;               
-            padding-left: 15px;              
-            padding-bottom: 10px;            
-         }
+  .form-registration {
+    width: 350px;
+    height: 273px;
+    margin-top: 80px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    background-color: var(--red-auth);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
-         label {
-            position: absolute;              
-            color: var(--black);             
-            font-size: 16px;                 
-            line-height: 18.75px;            
-            margin-left: 35px;               
-            padding-top: 10px;               
-            padding-left: 15px;              
-         }
+    .field-registration {
+      position: relative;
+      flex-direction: column;
+      margin-bottom: var(--space);
+      background-color: var(--red-auth);
+
+      .input-registration {
+        background-color: var(--white);
+        width: 280px;
+        height: 50px;
+        margin-left: 35px;
+        border: 1px solid var(--red-auth);
+        border-radius: 10px;
+        font-size: 14px;
+        padding-top: 35px;
+        padding-left: 15px;
+        padding-bottom: 10px;
       }
 
-      .send-registration {
-         position: absolute;                 
-         background-color: #101D1D;       
-         border-color: #101D1D;           
-         color: white;                    
-         width: 110px;                       
-         height: 48px;                       
-         font-size: 14px;                    
-         line-height: 16.41px;               
-         border-radius: 10px;                
-         margin-top: 210px;                  
-         margin-left: 206px;                 
-         cursor: pointer;                    
+      label {
+        position: absolute;
+        color: var(--black);
+        font-size: 16px;
+        line-height: 18.75px;
+        margin-left: 35px;
+        padding-top: 10px;
+        padding-left: 15px;
       }
+    }
 
-      .forget-registration {
-         background-color: var(--red-auth);       
-         color: var(--white);               
-         width: 120px;                      
-         height: 16px;                      
-         font-size: 14px;                   
-         line-height: 16.41px;              
-         text-decoration: none;             
-         margin-left: 35px;                 
-      }
-   }
+    .send-registration {
+      position: absolute;
+      background-color: #101d1d;
+      border-color: #101d1d;
+      color: white;
+      width: 110px;
+      height: 48px;
+      font-size: 14px;
+      line-height: 16.41px;
+      border-radius: 10px;
+      margin-top: 210px;
+      margin-left: 206px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .forget-registration {
+      background-color: var(--red-auth);
+      color: var(--white);
+      width: 120px;
+      height: 16px;
+      font-size: 14px;
+      line-height: 16.41px;
+      text-decoration: none;
+      margin-left: 35px;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
+  #header-auth {
+    .logo-mobile-auth {
+      display: none;
+    }
 
-   #header-auth {
-   
-      .logo-mobile-auth {
-         display: none;
-      }
-
-      .logo-desktop-auth {         
-         display: flex;
-         position: absolute;
-         justify-content: center;   
-         top: 43px;
-      }
-   }
+    .logo-desktop-auth {
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      top: 43px;
+    }
+  }
 }
