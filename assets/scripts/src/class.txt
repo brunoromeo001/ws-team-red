@@ -22,3 +22,18 @@
 //     return register;
 //   }
 // }
+
+ // if (validName(name) && validateEmail(email) && validatePassword(password)) {
+  //   let users = new Array();
+  //   if(localStorage.hasOwnProperty("users")){
+  //     users = JSON.parse(localStorage.getItem("users"))
+  //   }
+  //   users.push({name:name, email:email, password:password})
+
+  //   localStorage.setItem("users", JSON.stringify(users));
+  // }
+  // function salvarUsuario(){
+//   const usuario = {
+//     nome: nome , email: email , passord : password }
+//   }
+// TENTAR USAR INSOMNIA COMO BANCO DE DADOS.
