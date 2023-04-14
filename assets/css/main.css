@@ -867,6 +867,13 @@ section main .options label .content .price {
   padding-left: 15px;
   padding-bottom: 10px;
 }
+.band-registration .form-registration .field-registration .name-mensagem-erro,
+.band-registration .form-registration .field-registration .email-mensagem-erro,
+.band-registration .form-registration .field-registration .password-mensagem-erro {
+  margin-left: 40px;
+  margin-bottom: 0;
+  padding: 0;
+}
 .band-registration .form-registration .field-registration label {
   position: absolute;
   color: var(--black);

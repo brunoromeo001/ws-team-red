@@ -4,6 +4,9 @@ const pageRegistration = document.querySelector(
 const formRegister =
   document.querySelector<HTMLFormElement>(".form-registration");
 const inputs = document.querySelectorAll(".form-register input") as NodeList;
+const inputName = document.querySelector("#name") as HTMLInputElement;
+const inputEmail = document.getElementById("#email") as HTMLInputElement;
+const inputPassword = document.getElementById("#password") as HTMLInputElement;
 const btnRegister = document.querySelector(
   ".send-register"
 ) as HTMLButtonElement;
@@ -14,36 +17,77 @@ type AnyObject = {
 
 let values = {} as AnyObject;
 
+// FUNÇÃO QUE VALIDA E-MAIL
+function validateEmail(email: string) {
+  var regexEmail = /\S+@\S+\.\S+/;
+  let span = document.querySelector(".email-mensagem-erro") as HTMLSpanElement;
+  span.innerHTML = "";
+  let emailValido = regexEmail.test(email);
+  if (!emailValido || email == "") {
+    span.innerHTML = "E-mail não é válido";
+    return false;
+  } else {
+    span.innerHTML = "";
+    return true;
+  }
+}
+// FUNÇÃO QUE VALIDA O NOME: NÃO ACEITA NÚMEROS NEM VAZIO
+function validName(name: string) {
+  let span = document.querySelector(".name-mensagem-erro") as HTMLSpanElement;
+  let regexName = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
+  let nomeValido = name.split(/ +/).every((parte) => regexName.test(parte));
+  span.innerHTML = "";
+  if (name == "" || !nomeValido) {
+    span.innerHTML = "Nome não é válido";
+    name = "";
+    return false;
+  } else {
+    span.innerHTML = "";
+    return true;
+  }
+}
+// FUNÇÃO VALIDA NÚMERO MÍNIMO DE 6 CARACTERES PARA SENHA
+function validatePassword(password: string) {
+  let span = document.querySelector(
+    ".password-mensagem-erro"
+  ) as HTMLSpanElement;
+  if (password.length < 6 || password == "") {
+    span.innerHTML = "A senha deve ter no mínimo 6 caracteres";
+    return false;
+  } else {
+    span.innerHTML = "";
+    return true;
+  }
+}
+function validation(name: string, email: string, password: string) {
+  validName(name);
+  validateEmail(email);
+  validatePassword(password);
+}
+
+// PEGANDO DADOS DO FORM
 function getFormValues(formEl: HTMLFormElement) {
-  // PEGANDO DADOS DO FORM
   const form = new FormData(formEl);
-  let id: number = 1;
-  values.id = 1;
+
   form.forEach((value, key) => {
     values[key] = value;
-    console.log(values.id);
   });
+  const { email, name, password } = values;
+  validation(name, email, password);
+
   // COLOCANDO OS DADOS NO LOCAL STORAGE
+
   localStorage.setItem("user", JSON.stringify(values));
+  console.log(values);
+
   return values;
 }
+
 if (formRegister) {
   formRegister.addEventListener("submit", (e) => {
     e.preventDefault();
-    const { name, email, password } = getFormValues(formRegister);
-    console.log(name, email, password);
+    getFormValues(formRegister);
   });
 }
-
-// CONSTRIUR FUNÇÃO DE VALIDAÇÃO
-// PESQUISAR REGEX PARA EMAIL, SENHA E NOME
-// const { name, email, password } = values;
-// function validation(nome:string, email:string, password:string){
-// let msg = '';
-//   if(nome == ''){
-//     msg = "Por favor, informe o nome."
-//   } if()
-
-// }
 
 // ???DÚVIDA: NÃO SOBREESCREVER OS DADOS E ENVIAR PARA UM JSON???
