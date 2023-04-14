@@ -4,9 +4,6 @@ const pageRegistration = document.querySelector(
 const formRegister =
   document.querySelector<HTMLFormElement>(".form-registration");
 const inputs = document.querySelectorAll(".form-register input") as NodeList;
-const inputName = document.querySelector("#name") as HTMLInputElement;
-const inputEmail = document.getElementById("#email") as HTMLInputElement;
-const inputPassword = document.getElementById("#password") as HTMLInputElement;
 const btnRegister = document.querySelector(
   ".send-register"
 ) as HTMLButtonElement;
@@ -18,6 +15,7 @@ type AnyObject = {
 let values = {} as AnyObject;
 
 // FUNÇÃO QUE VALIDA E-MAIL
+//  FALTA VALIDAR SE EMAIL  JÁ EXISTE
 function validateEmail(email: string) {
   var regexEmail = /\S+@\S+\.\S+/;
   let span = document.querySelector(".email-mensagem-erro") as HTMLSpanElement;
@@ -32,7 +30,7 @@ function validateEmail(email: string) {
   }
 }
 // FUNÇÃO QUE VALIDA O NOME: NÃO ACEITA NÚMEROS NEM VAZIO
-function validName(name: string) {
+function validateName(name: string) {
   let span = document.querySelector(".name-mensagem-erro") as HTMLSpanElement;
   let regexName = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
   let nomeValido = name.split(/ +/).every((parte) => regexName.test(parte));
@@ -59,28 +57,47 @@ function validatePassword(password: string) {
     return true;
   }
 }
-function validation(name: string, email: string, password: string) {
-  validName(name);
-  validateEmail(email);
-  validatePassword(password);
-}
 
-// PEGANDO DADOS DO FORM
 function getFormValues(formEl: HTMLFormElement) {
+  const userItem: string | number | null = localStorage.getItem("user");
+  let arrUser = [];
+
+  if (userItem) {
+    const parsedItems = JSON.parse(userItem);
+
+    if (Array.isArray(parsedItems)) {
+      arrUser = parsedItems;
+    }
+  }
+  // CRIANDO ID
+
+  arrUser.sort((a, b) => a.id - b.id);
+  const lastItem = arrUser[arrUser.length - 1];
+  const newId = lastItem ? lastItem.id + 1 : 1;
+  values.id = newId;
+
+  // PEGANDO OS DADOS DO FORM
+
   const form = new FormData(formEl);
 
   form.forEach((value, key) => {
     values[key] = value;
   });
+
   const { email, name, password } = values;
-  validation(name, email, password);
 
-  // COLOCANDO OS DADOS NO LOCAL STORAGE
+  // SE OS DADOS ESTÃO VÁLIDOS ARMAZENA NO LOCALSTORAGE
 
-  localStorage.setItem("user", JSON.stringify(values));
-  console.log(values);
-
-  return values;
+  if (
+    validateName(name) &&
+    validateEmail(email) &&
+    validatePassword(password)
+  ) {
+    arrUser.push(values);
+    localStorage.setItem("user", JSON.stringify(arrUser));
+    alert("Cadastro realizado!");
+    window.location.href = "auth.html";
+  }
 }
 
 if (formRegister) {
@@ -89,5 +106,3 @@ if (formRegister) {
     getFormValues(formRegister);
   });
 }
-
-// ???DÚVIDA: NÃO SOBREESCREVER OS DADOS E ENVIAR PARA UM JSON???
