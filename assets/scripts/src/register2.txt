@@ -14,21 +14,7 @@ type AnyObject = {
 
 let values = {} as AnyObject;
 
-// VALIDA REGEX DO EMAIL E SE FOI PREENCHIDO
-function validateEmail(email: string) {
-  var regexEmail = /\S+@\S+\.\S+/;
-  let span = document.querySelector(".email-mensagem-erro") as HTMLSpanElement;
-  span.innerHTML = "";
-  let emailValido = regexEmail.test(email);
-  if (!emailValido || email == "") {
-    span.innerHTML = "E-mail não é válido";
-    return false;
-  } else {
-    span.innerHTML = "";
-    return true;
-  }
-}
-// FUNÇÃO QUE VALIDA O NOME: NÃO ACEITA NÚMEROS NEM VAZIO
+// FUNÇÃO VALIDA NOME: ACEITA APENAS LETRAS, ESPAÇOS, ACENTOS
 function validateName(name: string) {
   let span = document.querySelector(".name-mensagem-erro") as HTMLSpanElement;
   let regexName = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
@@ -43,16 +29,54 @@ function validateName(name: string) {
     return true;
   }
 }
-// FUNÇÃO VALIDA QUANTIDADE DE 6 A 10 CARACTERES PARA SENHA
+
+// FUNÇÃO VALIDA QUANTIDADE MÍNIMA DE 6 CARACTERES PARA SENHA
+// ADICIONAR QUANTIDADE MÁXIMA
 function validatePassword(password: string) {
   let span = document.querySelector(
     ".password-mensagem-erro"
   ) as HTMLSpanElement;
-  if (password.length < 6 || password.length > 10 || password == "") {
-    span.innerHTML = "A senha deve ter de 6 a 10 caracteres";
+  if (password.length < 6 || password == "") {
+    span.innerHTML = "A senha deve ter no mínimo 6 caracteres";
     return false;
   } else {
     span.innerHTML = "";
+    return true;
+  }
+}
+// VERIFICA SE O EMAIL JÁ EXISTE NO CADASTRO
+function emailExists(email: string) {
+  let span = document.querySelector(".email-mensagem-erro") as HTMLSpanElement;
+  for (var i = 0; i < localStorage.length; i++) {
+    const chave: string = localStorage.key(i)!;
+    if (chave.includes("email")) {
+      const valor: string | null = localStorage.getItem(chave);
+      if (valor === email) {
+        console.log("e-mail já existe no cadstro");
+        return true;
+      }
+    }
+  }
+  console.log("Email não existe");
+  // return false;
+}
+function validateEmail(email: string) {
+  var regexEmail = /\S+@\S+\.\S+/;
+  let span = document.querySelector(".email-mensagem-erro") as HTMLSpanElement;
+  span.innerHTML = "";
+  let emailValido = regexEmail.test(email);
+  if (!emailValido || email == "") {
+    console.log("email não é válido");
+    span.innerHTML = "E-mail não é válido";
+    return false;
+  } else if (emailExists(email)) {
+    span.innerHTML = "E-mail já existe no cadastro";
+    console.log("EMAIL JÁ EXISTE");
+    return false;
+  } else {
+    span.innerHTML = "";
+    console.log("EMAIL OK");
+
     return true;
   }
 }
@@ -68,13 +92,6 @@ function getFormValues(formEl: HTMLFormElement) {
       arrUser = parsedItems;
     }
   }
-  // CRIANDO ID
-
-  arrUser.sort((a, b) => a.id - b.id);
-  const lastItem = arrUser[arrUser.length - 1];
-  const newId = lastItem ? lastItem.id + 1 : 1;
-  values.id = newId;
-
   // PEGANDO OS DADOS DO FORM
 
   const form = new FormData(formEl);
@@ -82,19 +99,15 @@ function getFormValues(formEl: HTMLFormElement) {
   form.forEach((value, key) => {
     values[key] = value;
   });
-
   const { email, name, password } = values;
 
-  // VERIFICANDO SE EMAIL JÁ FOI CADASTRADO
-  const emailExists = arrUser.some((values) => values.email === email);
-
-  if (emailExists) {
-    let span = document.querySelector(
-      ".email-mensagem-erro"
-    ) as HTMLSpanElement;
-    span.innerHTML = "E-mail já cadastrado";
-    const emailInput = document.querySelector("#email") as HTMLInputElement;
-    emailInput.value = " ";
+  arrUser.sort((a, b) => a.id - b.id);
+  const lastItem = arrUser[arrUser.length - 1];
+  const newId = lastItem ? lastItem.id + 1 : 1;
+  values.id = newId;
+  // VERIFICA SE E-MAIL JÁ EXISTE
+  if (emailExists(email)) {
+    console.log("EMAIL JÁ EXISTE NO CADASTRO");
     return;
   }
   // SE OS DADOS ESTÃO VÁLIDOS ARMAZENA NO LOCALSTORAGE
@@ -110,6 +123,7 @@ function getFormValues(formEl: HTMLFormElement) {
     window.location.href = "auth.html";
   }
 }
+// CRIANDO ID
 
 if (formRegister) {
   formRegister.addEventListener("submit", (e) => {

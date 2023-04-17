@@ -4,8 +4,7 @@ const formRegister = document.querySelector(".form-registration");
 const inputs = document.querySelectorAll(".form-register input");
 const btnRegister = document.querySelector(".send-register");
 let values = {};
-// FUNÇÃO QUE VALIDA E-MAIL
-//  FALTA VALIDAR SE EMAIL  JÁ EXISTE
+// VALIDA REGEX DO EMAIL E SE FOI PREENCHIDO
 function validateEmail(email) {
     var regexEmail = /\S+@\S+\.\S+/;
     let span = document.querySelector(".email-mensagem-erro");
@@ -36,11 +35,11 @@ function validateName(name) {
         return true;
     }
 }
-// FUNÇÃO VALIDA NÚMERO MÍNIMO DE 6 CARACTERES PARA SENHA
+// FUNÇÃO VALIDA QUANTIDADE DE 6 A 10 CARACTERES PARA SENHA
 function validatePassword(password) {
     let span = document.querySelector(".password-mensagem-erro");
-    if (password.length < 6 || password == "") {
-        span.innerHTML = "A senha deve ter no mínimo 6 caracteres";
+    if (password.length < 6 || password.length > 10 || password == "") {
+        span.innerHTML = "A senha deve ter de 6 a 10 caracteres";
         return false;
     }
     else {
@@ -68,6 +67,15 @@ function getFormValues(formEl) {
         values[key] = value;
     });
     const { email, name, password } = values;
+    // VERIFICANDO SE EMAIL JÁ FOI CADASTRADO
+    const emailExists = arrUser.some((values) => values.email === email);
+    if (emailExists) {
+        let span = document.querySelector(".email-mensagem-erro");
+        span.innerHTML = "E-mail já cadastrado";
+        const emailInput = document.querySelector("#email");
+        emailInput.value = " ";
+        return;
+    }
     // SE OS DADOS ESTÃO VÁLIDOS ARMAZENA NO LOCALSTORAGE
     if (validateName(name) &&
         validateEmail(email) &&
