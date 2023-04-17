@@ -1,116 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HBurger - Equipe JS-004</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="assets/images/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="assets/images/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="assets/images/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="assets/images/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="assets/images/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="assets/images/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="assets/images/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="assets/images/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/images/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="assets/images/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon-16x16.png"
+    />
     <link rel="manifest" href="manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="Projeto Final Turma JS-004" />
     <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
-</head>
-<body>
+  </head>
+  <body>
     <header id="header">
-        <div class="logo-desktop">
-            <a href="index.html">
-                <img src="assets/images/logo-side.png" class="logo" alt="Logo" width="400px" />
-            </a>
-        </div>
-        <div class="logo-mobile">
-            <a href="index.html">
-                <img src="assets/images/logo-hburger-up.png" class="logo" alt="Logo" />
-            </a>
-
-        </div>
+      <div class="logo-desktop">
+        <a href="index.html">
+          <img
+            src="assets/images/logo-side.png"
+            class="logo"
+            alt="Logo"
+            width="400px"
+          />
+        </a>
+      </div>
+      <div class="logo-mobile">
+        <a href="index.html">
+          <img
+            src="assets/images/logo-hburger-up.png"
+            class="logo"
+            alt="Logo"
+          />
+        </a>
+      </div>
     </header>
-    
-    <section id="payment">
-        
-        <header id="title">
-           <h1>Pagamento</h1> 
-        </header>
 
-        <main>
-            <form action="order.html">
+    <section class="payment" id="payment">
+      <header id="title">
+        <h1>Pagamento</h1>
+      </header>
 
-                <div class="form-fields">
+      <main>
+        <form action="order.html">
+          <div class="form-fields">
+            <div class="field">
+              <input type="number" name="number" id="number" required />
+              <label for="number">Número do cartão</label>
+              <span class="number-mensagem-erro"></span>
+            </div>
 
-                    <div class="field">
-                        <input type="number" name="number" id="number" required />
-                        <label for="number">Número do Cartão</label>
-                    </div>
+            <div class="fields">
+              <div class="field">
+                <input type="number" name="expiry" id="expiry" required />
+                <label for="expiry">Validade</label>
+                <span class="expiry-mensagem-erro"></span>
+              </div>
 
-                    <div class="fields">
-                        <div class="field">
-                            <input type="number" name="expiry" id="expiry" required />
-                            <label for="expiry">Validade</label>
-                        </div>
+              <div class="field">
+                <input type="number" name="cvv" id="cvv" required />
+                <label for="cvv">CVV</label>
+                <span class="cvv-mensagem-erro"></span>
+              </div>
+            </div>
 
-                        <div class="field">
-                            <input type="number" name="cvv" id="cvv" required />
-                            <label for="cvv">Código de Segurança</label>
-                        </div>
-                    </div>
+            <div class="field">
+              <input type="text" name="name" id="name" required />
+              <label for="name">Nome</label>
+              <span class="name-mensagem-erro"></span>
+            </div>
 
-                    <div class="field">
-                        <input type="text" name="name" id="name" required />
-                        <label for="name">Nome</label>
-                    </div>
+            <div class="field">
+              <input type="text" name="document" id="document" required />
+              <label for="document">CPF</label>
+              <span class="document-mensagem-erro"></span>
+            </div>
+          </div>
 
-                    <div class="field">
-                        <select name="bank" id="bank">
-                            <option value="1">Nubank</option>
-                            <option value="2">Banco Bradesco</option>
-                        </select>
-                        <label for="bank">Banco Emissor</label>
-                    </div>
-
-                    <div class="field">
-                        <select name="installments" id="installments">
-                            <option value="1">1x</option>
-                            <option value="2">2x</option>
-                            <option value="1">3x</option>
-                            <option value="2">4x</option>
-                        </select>
-                        <label for="installments">Parcela</label>
-                    </div>
-
-                </div>
-
-                <footer class="btn-fixed">
-                    <button type="submit">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_6_332)">
-                            <path d="M17 2H7C5.9 2 5 2.9 5 4V6C5 7.1 5.9 8 7 8H17C18.1 8 19 7.1 19 6V4C19 2.9 18.1 2 17 2ZM17 6H7V4H17V6ZM20 22H4C2.9 22 2 21.1 2 20V19H22V20C22 21.1 21.1 22 20 22ZM18.53 10.19C18.21 9.47 17.49 9 16.7 9H7.3C6.51 9 5.79 9.47 5.47 10.19L2 18H22L18.53 10.19ZM9.5 16H8.5C8.22 16 8 15.78 8 15.5C8 15.22 8.22 15 8.5 15H9.5C9.78 15 10 15.22 10 15.5C10 15.78 9.78 16 9.5 16ZM9.5 14H8.5C8.22 14 8 13.78 8 13.5C8 13.22 8.22 13 8.5 13H9.5C9.78 13 10 13.22 10 13.5C10 13.78 9.78 14 9.5 14ZM9.5 12H8.5C8.22 12 8 11.78 8 11.5C8 11.22 8.22 11 8.5 11H9.5C9.78 11 10 11.22 10 11.5C10 11.78 9.78 12 9.5 12ZM12.5 16H11.5C11.22 16 11 15.78 11 15.5C11 15.22 11.22 15 11.5 15H12.5C12.78 15 13 15.22 13 15.5C13 15.78 12.78 16 12.5 16ZM12.5 14H11.5C11.22 14 11 13.78 11 13.5C11 13.22 11.22 13 11.5 13H12.5C12.78 13 13 13.22 13 13.5C13 13.78 12.78 14 12.5 14ZM12.5 12H11.5C11.22 12 11 11.78 11 11.5C11 11.22 11.22 11 11.5 11H12.5C12.78 11 13 11.22 13 11.5C13 11.78 12.78 12 12.5 12ZM15.5 16H14.5C14.22 16 14 15.78 14 15.5C14 15.22 14.22 15 14.5 15H15.5C15.78 15 16 15.22 16 15.5C16 15.78 15.78 16 15.5 16ZM15.5 14H14.5C14.22 14 14 13.78 14 13.5C14 13.22 14.22 13 14.5 13H15.5C15.78 13 16 13.22 16 13.5C16 13.78 15.78 14 15.5 14ZM15.5 12H14.5C14.22 12 14 11.78 14 11.5C14 11.22 14.22 11 14.5 11H15.5C15.78 11 16 11.22 16 11.5C16 11.78 15.78 12 15.5 12Z" fill="white"/>
-                            </g>
-                            <defs>
-                            <clipPath id="clip0_6_332">
-                            <rect width="24" height="24" fill="white"/>
-                            </clipPath>
-                            </defs>
-                        </svg>
-                        &nbsp;&nbsp;Pagar Agora
-                    </button>
-                </footer>
-
-            </form>
-        </main>
+          <footer class="btn-fixed">
+            <button type="submit">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_6_332)">
+                  <path
+                    d="M17 2H7C5.9 2 5 2.9 5 4V6C5 7.1 5.9 8 7 8H17C18.1 8 19 7.1 19 6V4C19 2.9 18.1 2 17 2ZM17 6H7V4H17V6ZM20 22H4C2.9 22 2 21.1 2 20V19H22V20C22 21.1 21.1 22 20 22ZM18.53 10.19C18.21 9.47 17.49 9 16.7 9H7.3C6.51 9 5.79 9.47 5.47 10.19L2 18H22L18.53 10.19ZM9.5 16H8.5C8.22 16 8 15.78 8 15.5C8 15.22 8.22 15 8.5 15H9.5C9.78 15 10 15.22 10 15.5C10 15.78 9.78 16 9.5 16ZM9.5 14H8.5C8.22 14 8 13.78 8 13.5C8 13.22 8.22 13 8.5 13H9.5C9.78 13 10 13.22 10 13.5C10 13.78 9.78 14 9.5 14ZM9.5 12H8.5C8.22 12 8 11.78 8 11.5C8 11.22 8.22 11 8.5 11H9.5C9.78 11 10 11.22 10 11.5C10 11.78 9.78 12 9.5 12ZM12.5 16H11.5C11.22 16 11 15.78 11 15.5C11 15.22 11.22 15 11.5 15H12.5C12.78 15 13 15.22 13 15.5C13 15.78 12.78 16 12.5 16ZM12.5 14H11.5C11.22 14 11 13.78 11 13.5C11 13.22 11.22 13 11.5 13H12.5C12.78 13 13 13.22 13 13.5C13 13.78 12.78 14 12.5 14ZM12.5 12H11.5C11.22 12 11 11.78 11 11.5C11 11.22 11.22 11 11.5 11H12.5C12.78 11 13 11.22 13 11.5C13 11.78 12.78 12 12.5 12ZM15.5 16H14.5C14.22 16 14 15.78 14 15.5C14 15.22 14.22 15 14.5 15H15.5C15.78 15 16 15.22 16 15.5C16 15.78 15.78 16 15.5 16ZM15.5 14H14.5C14.22 14 14 13.78 14 13.5C14 13.22 14.22 13 14.5 13H15.5C15.78 13 16 13.22 16 13.5C16 13.78 15.78 14 15.5 14ZM15.5 12H14.5C14.22 12 14 11.78 14 11.5C14 11.22 14.22 11 14.5 11H15.5C15.78 11 16 11.22 16 11.5C16 11.78 15.78 12 15.5 12Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_6_332">
+                    <rect width="24" height="24" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              &nbsp;&nbsp;Pagar Agora
+            </button>
+          </footer>
+        </form>
+      </main>
     </section>
     <script src="assets/scripts/dist/index.js"></script>
-</body>
+  </body>
 </html>
