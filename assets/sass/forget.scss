@@ -102,7 +102,10 @@
          border-radius: 10px;                
          margin-top: 98px;                  
          margin-left: 206px;                 
-         cursor: pointer;                    
+         cursor: pointer;   
+         display: flex;
+         justify-content: center;
+         align-items: center;           
       }
    }
 }
