@@ -458,9 +458,9 @@ section main .options label .content .price {
 }
 #payment > main form {
   background-color: var(--white);
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 #payment > main form .form-fields {
   padding-left: 28px;
@@ -468,7 +468,6 @@ section main .options label .content .price {
   padding-top: 16px;
   padding-bottom: 66px;
   flex-direction: column;
-  width: 100%;
 }
 #payment > main form .form-fields .fields {
   justify-content: space-between;
@@ -493,7 +492,9 @@ section main .options label .content .price {
   transition: color 0.3s ease-in-out;
   z-index: 2;
 }
-#payment > main form .form-fields .field input, #payment > main form .form-fields .field textarea, #payment > main form .form-fields .field select {
+#payment > main form .form-fields .field input,
+#payment > main form .form-fields .field textarea,
+#payment > main form .form-fields .field select {
   border: var(--gray-3) 1px solid;
   line-height: 1.5em;
   padding: 10px;
@@ -509,7 +510,22 @@ section main .options label .content .price {
   width: 100%;
   background-color: transparent;
 }
-#payment > main form .form-fields .field input:focus, #payment > main form .form-fields .field textarea:focus, #payment > main form .form-fields .field select:focus {
+#payment > main form .form-fields .field input:focus,
+#payment > main form .form-fields .field textarea:focus,
+#payment > main form .form-fields .field select:focus {
+  border: var(--blue) 1px solid;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 0;
+}
+#payment > main form .form-fields .field input:focus + label,
+#payment > main form .form-fields .field textarea:focus + label,
+#payment > main form .form-fields .field select:focus + label {
+  color: var(--blue);
+}
+#payment > main form .form-fields .field input:focus[read-only],
+#payment > main form .form-fields .field textarea:focus[read-only],
+#payment > main form .form-fields .field select:focus[read-only] {
   border: none;
   color: var(--black);
   font-weight: bold;
@@ -517,9 +533,16 @@ section main .options label .content .price {
   text-transform: uppercase;
   padding-bottom: 0;
 }
-#payment > main form .form-fields .field input:focus + label, #payment > main form .form-fields .field textarea:focus + label, #payment > main form .form-fields .field select:focus + label {
+#payment > main form .form-fields .field input:focus[read-only] + label,
+#payment > main form .form-fields .field textarea:focus[read-only] + label,
+#payment > main form .form-fields .field select:focus[read-only] + label {
   color: var(--gray-0);
-  text-transform: uppercase;
+}
+#payment > main form .form-fields .number-mensagem-erro {
+  color: var(--red);
+  margin-left: 40px;
+  margin-bottom: 0;
+  padding: 0;
 }
 #payment > main .btn-fixed {
   padding: 0px;

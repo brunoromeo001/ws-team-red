@@ -1,5 +1,5 @@
 const pagePayment = document.querySelector(".payment") as HTMLBodyElement;
-const formPayment = document.querySelector<HTMLFormElement>(".form-fields");
+const formPayment = document.querySelector<HTMLFormElement>("#formPayment");
 const inputForm = document.querySelectorAll("form-fields input") as NodeList;
 const btnFixed = document.querySelector(".btn-fixed") as HTMLButtonElement;
 
@@ -12,64 +12,100 @@ let valor = {} as AnyObjects;
 // FUNÇÃO QUE VALIDA NÚMERO DO CARTÃO DE CRÉDITO
 
 function validateCreditCard(numberCreditcard: string) {
-  var regexCreditcard =
+  let regexCreditcard =
     /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
-  let span = document.querySelector(".number-mensagem-erro") as HTMLSpanElement;
-  span.innerHTML = "";
+  let span = document.querySelector(".number-erro") as HTMLSpanElement;  
 
   let numberValido = regexCreditcard.test(numberCreditcard);
   if (!numberValido || numberCreditcard == "") {
     span.innerHTML = "Número de cartão inválido";
-    return false;
+    
   } else {
     span.innerHTML = "";
-    return true;
+    
   }
 }
 
 // FUNÇÃO QUE VALIDA DATA DE EXPIRAÇÃO
 
-function validateExpiryCreditCard(ExpiryDate: string) {
-  var regexExpiry = /^(0[1-9]|1[0-2])(\/|-)([0-9]{4})$/gm;
-  let span = document.querySelector(".expiry-mensagem-erro") as HTMLSpanElement;
-  span.innerHTML = "";
+function validateExpiryCreditCard(expiryDate: string) {
+  const today = new Date();
+  let parts = expiryDate.split("/");
+  const data = new Date(parseInt(parts[1]), parseInt(parts[0]) -1, 30);
 
-  let expiryValido = regexExpiry.test(ExpiryDate);
-  if (!expiryValido || ExpiryDate == "") {
-    span.innerHTML = "Informe uma data correta";
-    return false;
-  } else {
+  let regexExpiry = /^(0[1-9]|1[0-2])(\/|-)([0-9]{4})$/gm;
+  let span = document.querySelector(".expiry-erro") as HTMLSpanElement;
+  
+  let expiryValido = regexExpiry.test(expiryDate);
+  if (!expiryValido || expiryDate == "") {
+    span.innerHTML = "Data inválida";
+    
+  }else if (data < today){
+    span.innerHTML = "Cartão vencido";
+  }
+  else {
     span.innerHTML = "";
-    return true;
+    
   }
 }
 
 // FUNÇÃO VALIDA NÚMERO MÍNIMO DE 3 CARACTERES PARA SENHA
 function validateCvv(cvv: string) {
-  let span = document.querySelector(".cvv-mensagem-erro") as HTMLSpanElement;
-  if (cvv.length < 3 || cvv == "") {
-    span.innerHTML = "O CVV deve ter no mínimo 3 caracteres";
-    return false;
-  } else {
+  let span = document.querySelector(".cvv-erro") as HTMLSpanElement;  
+  if (
+    cvv.length < 3 
+    || cvv == ""
+    || !parseInt(cvv)
+  ) {
+    span.innerHTML = "CVV inválido";
+  } 
+  else{
     span.innerHTML = "";
-    return true;
   }
 }
 
 // FUNÇÃO QUE VALIDA O NOME: NÃO ACEITA NÚMEROS NEM VAZIO
 function validateNome(name: string) {
-  let span = document.querySelector(".name-mensagem-erro") as HTMLSpanElement;
+  let span = document.querySelector(".name-erro") as HTMLSpanElement;
   let regexName = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
   let nomeValido = name.split(/ +/).every((parte) => regexName.test(parte));
   span.innerHTML = "";
   if (name == "" || !nomeValido) {
-    span.innerHTML = "Nome não é válido";
-    name = "";
-    return false;
+    span.innerHTML = "Nome inválido";    
+    
   } else {
     span.innerHTML = "";
-    return true;
+    
   }
+}
+
+if (formPayment) {
+  let numberCard = document.getElementById("number") as HTMLInputElement;
+  let expiryCard = document.getElementById("expiry") as HTMLInputElement;
+  let cvvCard = document.getElementById("cvv") as HTMLInputElement;
+  let nameCard = document.getElementById("name") as HTMLInputElement;
+  let documentCard = document.getElementById("document") as HTMLInputElement;
+
+  nameCard.addEventListener("blur", (e) => {
+    validateNome(nameCard.value)
+  })
+
+  expiryCard.addEventListener("blur", (e) => {
+    validateExpiryCreditCard(expiryCard.value)    
+  })  
+
+  numberCard.addEventListener("blur", (e) => {
+    validateCreditCard(numberCard.value)    
+  })  
+
+  cvvCard.addEventListener("blur", (e) => {
+    validateCvv(cvvCard.value)
+  })
+
+  formPayment.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+  });
 }
 
 // const regex = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
@@ -108,7 +144,7 @@ function validateNome(name: string) {
 //         regex.lastIndex++;
 //     }
 
-//     // The result can be accessed through the `m`-variable.
+//     // The result can be accessed through the `m`-letiable.
 //     m.forEach((match, groupIndex) => {
 //         console.log(`Found match, group ${groupIndex}: ${match}`);
 //     });

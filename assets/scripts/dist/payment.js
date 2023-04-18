@@ -1,66 +1,85 @@
 "use strict";
 const pagePayment = document.querySelector(".payment");
-const formPayment = document.querySelector(".form-fields");
+const formPayment = document.querySelector("#formPayment");
 const inputForm = document.querySelectorAll("form-fields input");
 const btnFixed = document.querySelector(".btn-fixed");
 let valor = {};
 // FUNÇÃO QUE VALIDA NÚMERO DO CARTÃO DE CRÉDITO
 function validateCreditCard(numberCreditcard) {
-    var regexCreditcard = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
-    let span = document.querySelector(".number-mensagem-erro");
-    span.innerHTML = "";
+    let regexCreditcard = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
+    let span = document.querySelector(".number-erro");
     let numberValido = regexCreditcard.test(numberCreditcard);
     if (!numberValido || numberCreditcard == "") {
         span.innerHTML = "Número de cartão inválido";
-        return false;
     }
     else {
         span.innerHTML = "";
-        return true;
     }
 }
 // FUNÇÃO QUE VALIDA DATA DE EXPIRAÇÃO
-function validateExpiryCreditCard(ExpiryDate) {
-    var regexExpiry = /^(0[1-9]|1[0-2])(\/|-)([0-9]{4})$/gm;
-    let span = document.querySelector(".expiry-mensagem-erro");
-    span.innerHTML = "";
-    let expiryValido = regexExpiry.test(ExpiryDate);
-    if (!expiryValido || ExpiryDate == "") {
-        span.innerHTML = "Informe uma data correta";
-        return false;
+function validateExpiryCreditCard(expiryDate) {
+    const today = new Date();
+    let parts = expiryDate.split("/");
+    const data = new Date(parseInt(parts[1]), parseInt(parts[0]) - 1, 30);
+    let regexExpiry = /^(0[1-9]|1[0-2])(\/|-)([0-9]{4})$/gm;
+    let span = document.querySelector(".expiry-erro");
+    let expiryValido = regexExpiry.test(expiryDate);
+    if (!expiryValido || expiryDate == "") {
+        span.innerHTML = "Data inválida";
+    }
+    else if (data < today) {
+        span.innerHTML = "Cartão vencido";
     }
     else {
         span.innerHTML = "";
-        return true;
     }
 }
 // FUNÇÃO VALIDA NÚMERO MÍNIMO DE 3 CARACTERES PARA SENHA
 function validateCvv(cvv) {
-    let span = document.querySelector(".cvv-mensagem-erro");
-    if (cvv.length < 3 || cvv == "") {
-        span.innerHTML = "O CVV deve ter no mínimo 3 caracteres";
-        return false;
+    let span = document.querySelector(".cvv-erro");
+    if (cvv.length < 3
+        || cvv == ""
+        || !parseInt(cvv)) {
+        span.innerHTML = "CVV inválido";
     }
     else {
         span.innerHTML = "";
-        return true;
     }
 }
 // FUNÇÃO QUE VALIDA O NOME: NÃO ACEITA NÚMEROS NEM VAZIO
 function validateNome(name) {
-    let span = document.querySelector(".name-mensagem-erro");
+    let span = document.querySelector(".name-erro");
     let regexName = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
     let nomeValido = name.split(/ +/).every((parte) => regexName.test(parte));
     span.innerHTML = "";
     if (name == "" || !nomeValido) {
-        span.innerHTML = "Nome não é válido";
-        name = "";
-        return false;
+        span.innerHTML = "Nome inválido";
     }
     else {
         span.innerHTML = "";
-        return true;
     }
+}
+if (formPayment) {
+    let numberCard = document.getElementById("number");
+    let expiryCard = document.getElementById("expiry");
+    let cvvCard = document.getElementById("cvv");
+    let nameCard = document.getElementById("name");
+    let documentCard = document.getElementById("document");
+    nameCard.addEventListener("blur", (e) => {
+        validateNome(nameCard.value);
+    });
+    expiryCard.addEventListener("blur", (e) => {
+        validateExpiryCreditCard(expiryCard.value);
+    });
+    numberCard.addEventListener("blur", (e) => {
+        validateCreditCard(numberCard.value);
+    });
+    cvvCard.addEventListener("blur", (e) => {
+        validateCvv(cvvCard.value);
+    });
+    formPayment.addEventListener("submit", (e) => {
+        e.preventDefault();
+    });
 }
 // const regex = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
 // // Alternative syntax using RegExp constructor
@@ -93,7 +112,7 @@ function validateNome(name) {
 //     if (m.index === regex.lastIndex) {
 //         regex.lastIndex++;
 //     }
-//     // The result can be accessed through the `m`-variable.
+//     // The result can be accessed through the `m`-letiable.
 //     m.forEach((match, groupIndex) => {
 //         console.log(`Found match, group ${groupIndex}: ${match}`);
 //     });

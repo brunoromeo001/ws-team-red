@@ -109,38 +109,38 @@
       </header>
 
       <main>
-        <form action="order.html">
+        <form id="formPayment">
           <div class="form-fields">
             <div class="field">
-              <input type="number" name="number" id="number" required />
+              <input type="text" name="number" id="number" required />
               <label for="number">Número do cartão</label>
-              <span class="number-mensagem-erro"></span>
+              <span class="number-erro" style="color: rgba(255, 82 ,82, 0.7);"></span>
             </div>
 
             <div class="fields">
               <div class="field">
-                <input type="number" name="expiry" id="expiry" required />
+                <input type="text" name="expiry" id="expiry" placeholder="MM/AAAA" required />
                 <label for="expiry">Validade</label>
-                <span class="expiry-mensagem-erro"></span>
+                <span class="expiry-erro" style="color: rgba(255, 82 ,82, 0.7);"></span>
               </div>
 
               <div class="field">
-                <input type="number" name="cvv" id="cvv" required />
+                <input type="text" name="cvv" id="cvv"  required />
                 <label for="cvv">CVV</label>
-                <span class="cvv-mensagem-erro"></span>
+                <span class="cvv-erro" style="color: rgba(255, 82 ,82, 0.7);"></span>
               </div>
             </div>
 
             <div class="field">
               <input type="text" name="name" id="name" required />
               <label for="name">Nome</label>
-              <span class="name-mensagem-erro"></span>
+              <span class="name-erro" style="color: rgba(255, 82 ,82, 0.7);"></span>
             </div>
 
             <div class="field">
               <input type="text" name="document" id="document" required />
               <label for="document">CPF</label>
-              <span class="document-mensagem-erro"></span>
+              <span class="document-erro"></span>
             </div>
           </div>
 
@@ -171,6 +171,6 @@
         </form>
       </main>
     </section>
-    <script src="assets/scripts/dist/index.js"></script>
+    <script src="assets/scripts/dist/payment.js"></script>
   </body>
 </html>

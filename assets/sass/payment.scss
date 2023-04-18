@@ -73,12 +73,12 @@
             width: 100%;
             background-color: transparent;
             &:focus {
-              border: var(--green) 1px solid;
+              border: var(--blue) 1px solid;
               font-weight: bold;
               font-size: 22px;
               padding-bottom: 0;
               + label {
-                color: var(--green);
+                color: var(--blue);
               }
               &[read-only] {
                 border: none;
@@ -94,6 +94,7 @@
             }
           }
         }
+
         .number-mensagem-erro {
           color: var(--red);
           margin-left: 40px;
