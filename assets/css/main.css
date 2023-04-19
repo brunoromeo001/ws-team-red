@@ -783,6 +783,9 @@ section main .options label .content .price {
   margin-top: 98px;
   margin-left: 206px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1200px) {
