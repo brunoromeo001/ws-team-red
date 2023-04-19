@@ -2,12 +2,9 @@
 const pageRegistration = document.querySelector(".body-registration");
 const formRegister = document.querySelector(".form-registration");
 const inputs = document.querySelectorAll(".form-register input");
-const inputName = document.querySelector("#name");
-const inputEmail = document.getElementById("#email");
-const inputPassword = document.getElementById("#password");
 const btnRegister = document.querySelector(".send-register");
 let values = {};
-// FUNÇÃO QUE VALIDA E-MAIL
+// VALIDA REGEX DO EMAIL E SE FOI PREENCHIDO
 function validateEmail(email) {
     var regexEmail = /\S+@\S+\.\S+/;
     let span = document.querySelector(".email-mensagem-erro");
@@ -23,7 +20,7 @@ function validateEmail(email) {
     }
 }
 // FUNÇÃO QUE VALIDA O NOME: NÃO ACEITA NÚMEROS NEM VAZIO
-function validName(name) {
+function validateName(name) {
     let span = document.querySelector(".name-mensagem-erro");
     let regexName = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
     let nomeValido = name.split(/ +/).every((parte) => regexName.test(parte));
@@ -38,11 +35,11 @@ function validName(name) {
         return true;
     }
 }
-// FUNÇÃO VALIDA NÚMERO MÍNIMO DE 6 CARACTERES PARA SENHA
+// FUNÇÃO VALIDA QUANTIDADE DE 6 A 10 CARACTERES PARA SENHA
 function validatePassword(password) {
     let span = document.querySelector(".password-mensagem-erro");
-    if (password.length < 6 || password == "") {
-        span.innerHTML = "A senha deve ter no mínimo 6 caracteres";
+    if (password.length < 6 || password.length > 10 || password == "") {
+        span.innerHTML = "A senha deve ter de 6 a 10 caracteres";
         return false;
     }
     else {
@@ -50,14 +47,8 @@ function validatePassword(password) {
         return true;
     }
 }
-function validation(name, email, password) {
-    validName(name);
-    validateEmail(email);
-    validatePassword(password);
-}
-// PEGANDO DADOS DO FORM
 function getFormValues(formEl) {
-    const userItem = localStorage.getItem('user');
+    const userItem = localStorage.getItem("user");
     let arrUser = [];
     if (userItem) {
         const parsedItems = JSON.parse(userItem);
@@ -65,23 +56,34 @@ function getFormValues(formEl) {
             arrUser = parsedItems;
         }
     }
+    // CRIANDO ID
     arrUser.sort((a, b) => a.id - b.id);
     const lastItem = arrUser[arrUser.length - 1];
     const newId = lastItem ? lastItem.id + 1 : 1;
     values.id = newId;
+    // PEGANDO OS DADOS DO FORM
     const form = new FormData(formEl);
     form.forEach((value, key) => {
         values[key] = value;
     });
     const { email, name, password } = values;
-    if (validName(name)
-        &&
-            validateEmail(email)
-        &&
-            validatePassword(password)) {
+    // VERIFICANDO SE EMAIL JÁ FOI CADASTRADO
+    const emailExists = arrUser.some((values) => values.email === email);
+    if (emailExists) {
+        let span = document.querySelector(".email-mensagem-erro");
+        span.innerHTML = "E-mail já cadastrado";
+        const emailInput = document.querySelector("#email");
+        emailInput.value = " ";
+        return;
+    }
+    // SE OS DADOS ESTÃO VÁLIDOS ARMAZENA NO LOCALSTORAGE
+    if (validateName(name) &&
+        validateEmail(email) &&
+        validatePassword(password)) {
         arrUser.push(values);
-        // COLOCANDO OS DADOS NO LOCAL STORAGE
         localStorage.setItem("user", JSON.stringify(arrUser));
+        alert("Cadastro realizado!");
+        window.location.href = "auth.html";
     }
 }
 if (formRegister) {

@@ -4,22 +4,29 @@ if (formForget) {
   formForget.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    let userItem: (string | number | null) = localStorage.getItem('user');
-
-    let users: object = JSON.parse(userItem);
+    interface User {
+      email: string;
+    }
+    
+    let userItem: string | null = localStorage.getItem('user');
+    
+    let users: User[] = userItem ? JSON.parse(userItem) : [];
     
     let emailFind = document.getElementById("email") as HTMLInputElement;
     
     let emailEncontrado = false;
     
-    const userFind = users.find(user => user.email === emailFind.value);
-
+    const userFind = users.find((user: User) => user.email === emailFind.value);
+    
     let span = document.querySelector("#forget-msg") as HTMLSpanElement;
-
+    
     if (userFind) {
-      span.innerHTML = "E-mail enviado com sucesso";
+      
+      alert(`Instruções enviada para o email: ${emailFind.value}`)
+      window.location.href = "auth.html";
     } else {
-      span.innerHTML = "E-mail não cadastrado";
+      
+      alert("E-mail não cadastrado")
     }
 
   });
