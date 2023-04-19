@@ -783,6 +783,9 @@ section main .options label .content .price {
   margin-top: 98px;
   margin-left: 206px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1200px) {
@@ -867,6 +870,13 @@ section main .options label .content .price {
   padding-left: 15px;
   padding-bottom: 10px;
 }
+.band-registration .form-registration .field-registration .name-mensagem-erro,
+.band-registration .form-registration .field-registration .email-mensagem-erro,
+.band-registration .form-registration .field-registration .password-mensagem-erro {
+  margin-left: 40px;
+  margin-bottom: 0;
+  padding: 0;
+}
 .band-registration .form-registration .field-registration label {
   position: absolute;
   color: var(--black);
@@ -878,8 +888,8 @@ section main .options label .content .price {
 }
 .band-registration .form-registration .send-registration {
   position: absolute;
-  background-color: #101D1D;
-  border-color: #101D1D;
+  background-color: #101d1d;
+  border-color: #101d1d;
   color: white;
   width: 110px;
   height: 48px;
@@ -889,6 +899,9 @@ section main .options label .content .price {
   margin-top: 210px;
   margin-left: 206px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .band-registration .form-registration .forget-registration {
   background-color: var(--red-auth);
