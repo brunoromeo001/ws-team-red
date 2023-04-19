@@ -1,1 +1,2 @@
-import "./order";
+"use strict";
+console.log("Turma JS-004");
