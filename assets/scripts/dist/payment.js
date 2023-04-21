@@ -8,14 +8,34 @@ let valor = {};
 function validateCreditCard(numberCreditcard) {
     let regexCreditcard = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
     let span = document.querySelector(".number-erro");
+    const div = document.querySelector(".field");
+    const inputNumber = document.querySelector("#number");
+    const labelNumber = document.querySelector("#number");
     let numberValido = regexCreditcard.test(numberCreditcard);
-    if (!numberValido || numberCreditcard == "") {
-        span.innerHTML = "Número de cartão inválido";
-    }
-    else {
-        span.innerHTML = "";
+    if (div) {
+        if (inputNumber || labelNumber) {
+            if (!numberValido || numberCreditcard == "") {
+                div.classList.remove("field");
+                div.classList.add("field-red");
+                inputNumber.innerHTML = "";
+            }
+            else {
+                inputNumber.innerHTML = "";
+                div.classList.remove("field");
+                div.classList.add("field-green");
+            }
+        }
     }
 }
+//   if (!numberValido || numberCreditcard == "") {
+//     //span.innerHTML = "Número de cartão inválido";
+//     div.classList.remove("field");
+//     div.classList.add("field-red");
+//   } else {
+//     // span.innerHTML = "";
+//     div.classList.add(".field-green");
+//   }
+// }
 // FUNÇÃO QUE VALIDA DATA DE EXPIRAÇÃO
 function validateExpiryCreditCard(expiryDate) {
     const today = new Date();
@@ -37,9 +57,7 @@ function validateExpiryCreditCard(expiryDate) {
 // FUNÇÃO VALIDA NÚMERO MÍNIMO DE 3 CARACTERES PARA SENHA
 function validateCvv(cvv) {
     let span = document.querySelector(".cvv-erro");
-    if (cvv.length < 3
-        || cvv == ""
-        || !parseInt(cvv)) {
+    if (cvv.length < 3 || cvv == "" || !parseInt(cvv)) {
         span.innerHTML = "CVV inválido";
     }
     else {

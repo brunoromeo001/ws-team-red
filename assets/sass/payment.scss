@@ -94,6 +94,115 @@
             }
           }
         }
+        .field-red {
+          position: relative;
+          flex-direction: column;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 100%;
+          label {
+            color: var(--red);
+            font-size: 14px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: color 0.3s ease-in-out;
+            z-index: 2;
+          }
+          input,
+          textarea,
+          select {
+            border: var(--red) 1px solid;
+            line-height: 1.5em;
+            padding: 10px;
+            padding-top: 33px;
+            font-size: 16px;
+            color: var(--dark-0);
+            outline: none;
+            border-radius: var(--border-radius);
+            position: relative;
+            z-index: 1;
+            top: 0;
+            transition: border-color 0.3 ease-in-out;
+            width: 100%;
+            background-color: transparent;
+            &:focus {
+              border: var(--red) 1px solid;
+              font-weight: bold;
+              font-size: 22px;
+              padding-bottom: 0;
+              + label {
+                color: var(--red);
+              }
+              &[read-only] {
+                border: none;
+                color: var(--black);
+                font-weight: bold;
+                font-size: 22px;
+                text-transform: uppercase;
+                padding-bottom: 0;
+                + label {
+                  color: var(--gray-0);
+                }
+              }
+            }
+          }
+        }
+
+        .field-green {
+          position: relative;
+          flex-direction: column;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 100%;
+          label {
+            color: var(--green);
+            font-size: 14px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: color 0.3s ease-in-out;
+            z-index: 2;
+          }
+          input,
+          textarea,
+          select {
+            border: var(--green) 1px solid;
+            line-height: 1.5em;
+            padding: 10px;
+            padding-top: 33px;
+            font-size: 16px;
+            color: var(--dark-0);
+            outline: none;
+            border-radius: var(--border-radius);
+            position: relative;
+            z-index: 1;
+            top: 0;
+            transition: border-color 0.3 ease-in-out;
+            width: 100%;
+            background-color: transparent;
+            &:focus {
+              border: var(--green) 1px solid;
+              font-weight: bold;
+              font-size: 22px;
+              padding-bottom: 0;
+              + label {
+                color: var(--green);
+              }
+              &[read-only] {
+                border: none;
+                color: var(--black);
+                font-weight: bold;
+                font-size: 22px;
+                text-transform: uppercase;
+                padding-bottom: 0;
+                + label {
+                  color: var(--gray-0);
+                }
+              }
+            }
+          }
+        }
 
         .number-mensagem-erro {
           color: var(--red);

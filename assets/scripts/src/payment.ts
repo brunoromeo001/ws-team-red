@@ -14,52 +14,63 @@ let valor = {} as AnyObjects;
 function validateCreditCard(numberCreditcard: string) {
   let regexCreditcard =
     /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/gm;
-  let span = document.querySelector(".number-erro") as HTMLSpanElement;  
+  let span = document.querySelector(".number-erro") as HTMLSpanElement;
+  const div = document.querySelector(".field") as HTMLDivElement;
+  const inputNumber = document.querySelector("#number") as HTMLInputElement;
+  const labelNumber = document.querySelector("#number") as HTMLLabelElement;
 
   let numberValido = regexCreditcard.test(numberCreditcard);
-  if (!numberValido || numberCreditcard == "") {
-    span.innerHTML = "Número de cartão inválido";
-    
-  } else {
-    span.innerHTML = "";
-    
+
+  if (div) {
+    if (inputNumber || labelNumber) {
+      if (!numberValido || numberCreditcard == "") {
+        div.classList.remove("field");
+        div.classList.add("field-red");
+        inputNumber.innerHTML = "";
+      } else {
+        inputNumber.innerHTML = "";
+        div.classList.remove("field");
+        div.classList.add("field-green");
+      }
+    }
   }
 }
+//   if (!numberValido || numberCreditcard == "") {
+//     //span.innerHTML = "Número de cartão inválido";
+//     div.classList.remove("field");
+//     div.classList.add("field-red");
+//   } else {
+//     // span.innerHTML = "";
+//     div.classList.add(".field-green");
+//   }
+// }
 
 // FUNÇÃO QUE VALIDA DATA DE EXPIRAÇÃO
 
 function validateExpiryCreditCard(expiryDate: string) {
   const today = new Date();
   let parts = expiryDate.split("/");
-  const data = new Date(parseInt(parts[1]), parseInt(parts[0]) -1, 30);
+  const data = new Date(parseInt(parts[1]), parseInt(parts[0]) - 1, 30);
 
   let regexExpiry = /^(0[1-9]|1[0-2])(\/|-)([0-9]{4})$/gm;
   let span = document.querySelector(".expiry-erro") as HTMLSpanElement;
-  
+
   let expiryValido = regexExpiry.test(expiryDate);
   if (!expiryValido || expiryDate == "") {
     span.innerHTML = "Data inválida";
-    
-  }else if (data < today){
+  } else if (data < today) {
     span.innerHTML = "Cartão vencido";
-  }
-  else {
+  } else {
     span.innerHTML = "";
-    
   }
 }
 
 // FUNÇÃO VALIDA NÚMERO MÍNIMO DE 3 CARACTERES PARA SENHA
 function validateCvv(cvv: string) {
-  let span = document.querySelector(".cvv-erro") as HTMLSpanElement;  
-  if (
-    cvv.length < 3 
-    || cvv == ""
-    || !parseInt(cvv)
-  ) {
+  let span = document.querySelector(".cvv-erro") as HTMLSpanElement;
+  if (cvv.length < 3 || cvv == "" || !parseInt(cvv)) {
     span.innerHTML = "CVV inválido";
-  } 
-  else{
+  } else {
     span.innerHTML = "";
   }
 }
@@ -71,11 +82,9 @@ function validateNome(name: string) {
   let nomeValido = name.split(/ +/).every((parte) => regexName.test(parte));
   span.innerHTML = "";
   if (name == "" || !nomeValido) {
-    span.innerHTML = "Nome inválido";    
-    
+    span.innerHTML = "Nome inválido";
   } else {
     span.innerHTML = "";
-    
   }
 }
 
@@ -87,24 +96,23 @@ if (formPayment) {
   let documentCard = document.getElementById("document") as HTMLInputElement;
 
   nameCard.addEventListener("blur", (e) => {
-    validateNome(nameCard.value)
-  })
+    validateNome(nameCard.value);
+  });
 
   expiryCard.addEventListener("blur", (e) => {
-    validateExpiryCreditCard(expiryCard.value)    
-  })  
+    validateExpiryCreditCard(expiryCard.value);
+  });
 
   numberCard.addEventListener("blur", (e) => {
-    validateCreditCard(numberCard.value)    
-  })  
+    validateCreditCard(numberCard.value);
+  });
 
   cvvCard.addEventListener("blur", (e) => {
-    validateCvv(cvvCard.value)
-  })
+    validateCvv(cvvCard.value);
+  });
 
   formPayment.addEventListener("submit", (e) => {
     e.preventDefault();
-
   });
 }
 
