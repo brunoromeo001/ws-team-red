@@ -1,24 +1,19 @@
-let users = [
-  {
-    id: 1,
-    name: "bruno",
-    email: "email@email.com",
-    password: "123456",
-  },
-  {
-    id: 2,
-    name: "Samuel",
-    email: "samuelbortolingomes@gmail.com",
-    password: "123456",
-  },
-];
-
 const pageAuth = document.querySelector("#body-auth") as HTMLBodyElement;
 const formAuth = document.querySelector<HTMLFormElement>(".form-auth");
 
 if (formAuth) {
   formAuth.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    interface IUser {
+      email: string;
+      password: string;
+      id: number;
+    }
+
+    let userLocal: string | null = localStorage.getItem('user');
+
+    let users: IUser[] = userLocal ? JSON.parse(userLocal) : [];    
 
     let emailUser = document.getElementById("email") as HTMLInputElement;
     let passwordUser = document.getElementById("password") as HTMLInputElement;
