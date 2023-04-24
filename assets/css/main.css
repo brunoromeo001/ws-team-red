@@ -458,9 +458,9 @@ section main .options label .content .price {
 }
 #payment > main form {
   background-color: var(--white);
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 #payment > main form .form-fields {
   padding-left: 28px;
@@ -468,13 +468,12 @@ section main .options label .content .price {
   padding-top: 16px;
   padding-bottom: 66px;
   flex-direction: column;
-  width: 100%;
 }
 #payment > main form .form-fields .fields {
   justify-content: space-between;
   flex-direction: row;
 }
-#payment > main form .form-fields .fields .field {
+#payment > main form .form-fields .fields .field, #payment > main form .form-fields .fields .field-red, #payment > main form .form-fields .fields .field-green {
   width: calc(50% - 7.5px);
 }
 #payment > main form .form-fields .field {
@@ -493,7 +492,9 @@ section main .options label .content .price {
   transition: color 0.3s ease-in-out;
   z-index: 2;
 }
-#payment > main form .form-fields .field input, #payment > main form .form-fields .field textarea, #payment > main form .form-fields .field select {
+#payment > main form .form-fields .field input,
+#payment > main form .form-fields .field textarea,
+#payment > main form .form-fields .field select {
   border: var(--gray-3) 1px solid;
   line-height: 1.5em;
   padding: 10px;
@@ -509,7 +510,22 @@ section main .options label .content .price {
   width: 100%;
   background-color: transparent;
 }
-#payment > main form .form-fields .field input:focus, #payment > main form .form-fields .field textarea:focus, #payment > main form .form-fields .field select:focus {
+#payment > main form .form-fields .field input:focus,
+#payment > main form .form-fields .field textarea:focus,
+#payment > main form .form-fields .field select:focus {
+  border: var(--blue) 1px solid;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 0;
+}
+#payment > main form .form-fields .field input:focus + label,
+#payment > main form .form-fields .field textarea:focus + label,
+#payment > main form .form-fields .field select:focus + label {
+  color: var(--blue);
+}
+#payment > main form .form-fields .field input:focus[read-only],
+#payment > main form .form-fields .field textarea:focus[read-only],
+#payment > main form .form-fields .field select:focus[read-only] {
   border: none;
   color: var(--black);
   font-weight: bold;
@@ -517,9 +533,140 @@ section main .options label .content .price {
   text-transform: uppercase;
   padding-bottom: 0;
 }
-#payment > main form .form-fields .field input:focus + label, #payment > main form .form-fields .field textarea:focus + label, #payment > main form .form-fields .field select:focus + label {
+#payment > main form .form-fields .field input:focus[read-only] + label,
+#payment > main form .form-fields .field textarea:focus[read-only] + label,
+#payment > main form .form-fields .field select:focus[read-only] + label {
   color: var(--gray-0);
+}
+#payment > main form .form-fields .field-red {
+  position: relative;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+#payment > main form .form-fields .field-red label {
+  color: var(--red);
+  font-size: 14px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: color 0.3s ease-in-out;
+  z-index: 2;
+}
+#payment > main form .form-fields .field-red input,
+#payment > main form .form-fields .field-red textarea,
+#payment > main form .form-fields .field-red select {
+  border: var(--red) 1px solid;
+  line-height: 1.5em;
+  padding: 10px;
+  padding-top: 33px;
+  font-size: 16px;
+  color: var(--dark-0);
+  outline: none;
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 1;
+  top: 0;
+  transition: border-color 0.3 ease-in-out;
+  width: 100%;
+  background-color: transparent;
+}
+#payment > main form .form-fields .field-red input:focus,
+#payment > main form .form-fields .field-red textarea:focus,
+#payment > main form .form-fields .field-red select:focus {
+  border: var(--red) 1px solid;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 0;
+}
+#payment > main form .form-fields .field-red input:focus + label,
+#payment > main form .form-fields .field-red textarea:focus + label,
+#payment > main form .form-fields .field-red select:focus + label {
+  color: var(--red);
+}
+#payment > main form .form-fields .field-red input:focus[read-only],
+#payment > main form .form-fields .field-red textarea:focus[read-only],
+#payment > main form .form-fields .field-red select:focus[read-only] {
+  border: none;
+  color: var(--black);
+  font-weight: bold;
+  font-size: 22px;
   text-transform: uppercase;
+  padding-bottom: 0;
+}
+#payment > main form .form-fields .field-red input:focus[read-only] + label,
+#payment > main form .form-fields .field-red textarea:focus[read-only] + label,
+#payment > main form .form-fields .field-red select:focus[read-only] + label {
+  color: var(--gray-0);
+}
+#payment > main form .form-fields .field-green {
+  position: relative;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+#payment > main form .form-fields .field-green label {
+  color: var(--green);
+  font-size: 14px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: color 0.3s ease-in-out;
+  z-index: 2;
+}
+#payment > main form .form-fields .field-green input,
+#payment > main form .form-fields .field-green textarea,
+#payment > main form .form-fields .field-green select {
+  border: var(--green) 1px solid;
+  line-height: 1.5em;
+  padding: 10px;
+  padding-top: 33px;
+  font-size: 16px;
+  color: var(--dark-0);
+  outline: none;
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 1;
+  top: 0;
+  transition: border-color 0.3 ease-in-out;
+  width: 100%;
+  background-color: transparent;
+}
+#payment > main form .form-fields .field-green input:focus,
+#payment > main form .form-fields .field-green textarea:focus,
+#payment > main form .form-fields .field-green select:focus {
+  border: var(--green) 1px solid;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 0;
+}
+#payment > main form .form-fields .field-green input:focus + label,
+#payment > main form .form-fields .field-green textarea:focus + label,
+#payment > main form .form-fields .field-green select:focus + label {
+  color: var(--green);
+}
+#payment > main form .form-fields .field-green input:focus[read-only],
+#payment > main form .form-fields .field-green textarea:focus[read-only],
+#payment > main form .form-fields .field-green select:focus[read-only] {
+  border: none;
+  color: var(--black);
+  font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding-bottom: 0;
+}
+#payment > main form .form-fields .field-green input:focus[read-only] + label,
+#payment > main form .form-fields .field-green textarea:focus[read-only] + label,
+#payment > main form .form-fields .field-green select:focus[read-only] + label {
+  color: var(--gray-0);
+}
+#payment > main form .form-fields .number-mensagem-erro {
+  color: var(--red);
+  margin-left: 40px;
+  margin-bottom: 0;
+  padding: 0;
 }
 #payment > main .btn-fixed {
   padding: 0px;
