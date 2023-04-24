@@ -1,4 +1,5 @@
 node_modules/
 _old
+.vscode
 
 package-lock.json

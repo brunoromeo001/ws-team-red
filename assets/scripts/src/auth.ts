@@ -25,9 +25,9 @@ if (formAuth) {
 
     if (userLogin) {
       sessionStorage.setItem(
-        "isLoged",
+        "isLogged",
         JSON.stringify({
-          isLoged: true,
+          isLogged: true,
           idUser: userLogin?.id,
         })
       );

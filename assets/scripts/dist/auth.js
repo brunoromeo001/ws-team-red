@@ -10,8 +10,8 @@ if (formAuth) {
         let passwordUser = document.getElementById("password");
         const userLogin = users.find((user) => user.email === emailUser.value && user.password === passwordUser.value);
         if (userLogin) {
-            sessionStorage.setItem("isLoged", JSON.stringify({
-                isLoged: true,
+            sessionStorage.setItem("isLogged", JSON.stringify({
+                isLogged: true,
                 idUser: userLogin?.id,
             }));
             window.location.href = "index.html";
