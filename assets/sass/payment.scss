@@ -36,7 +36,7 @@
         .fields {
           justify-content: space-between;
           flex-direction: row;
-          .field {
+          .field, .field-red, .field-green{
             width: calc(50% - calc(15px / 2));
           }
         }

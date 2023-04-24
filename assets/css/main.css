@@ -473,7 +473,7 @@ section main .options label .content .price {
   justify-content: space-between;
   flex-direction: row;
 }
-#payment > main form .form-fields .fields .field {
+#payment > main form .form-fields .fields .field, #payment > main form .form-fields .fields .field-red, #payment > main form .form-fields .fields .field-green {
   width: calc(50% - 7.5px);
 }
 #payment > main form .form-fields .field {
