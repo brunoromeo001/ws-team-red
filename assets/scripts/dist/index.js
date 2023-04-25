@@ -42,9 +42,14 @@ btnSave.addEventListener("click", (e) => {
     HNumber++;
     sessionStorage.setItem("orderDescription", JSON.stringify(arrOrderDescription));
     Object.values(arrOrderDescription).forEach((val) => {
+        const haNumber = document.querySelector(`.ha-${HNumber - 1}`);
+        if (haNumber) {
+            haNumber.remove();
+            console.log(haNumber, HNumber - 1);
+        }
         totalOrder += parseFloat(val.price);
         section.innerHTML += `
-      <div class="content">
+      <div class="content ha-${HNumber - 1}">
         <span >${val.desciption}</span>
         <span >R$ ${val.price}</span>
         <a href="#">
@@ -104,9 +109,7 @@ pay.addEventListener('click', function (event) {
                 date: new Date()
             });
             localStorage.setItem("orders", JSON.stringify(arrOrders));
+            location.href = "order.html";
         }
-    }
-    else {
-        console.log("nada");
     }
 });

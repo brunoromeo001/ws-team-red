@@ -1,4 +1,4 @@
-let cards = document.querySelector<HTMLFormElement>(".cards");
+let cards = document.querySelector(".cards") as HTMLFormElement;
 
 if( cards){
   const isLogged: string | null = sessionStorage.getItem("isLogged");

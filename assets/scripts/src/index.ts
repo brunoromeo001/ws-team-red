@@ -51,19 +51,22 @@ btnSave.addEventListener("click", (e) => {
       desciption: `Hamburger ${HNumber}`,
       price: total.toFixed(2),
     }
-  )
+  )  
+  HNumber ++; 
+  sessionStorage.setItem("orderDescription", JSON.stringify(arrOrderDescription));
 
-  HNumber ++;  
-
-  sessionStorage.setItem("orderDescription", JSON.stringify(arrOrderDescription));    
   
-
   Object.values(arrOrderDescription).forEach((val) => {
-    
-    totalOrder += parseFloat(val.price);    
+    const haNumber = document.querySelector(`.ha-${HNumber -1}`) as HTMLFormElement;
+    if(haNumber){
+      haNumber.remove();
+      console.log(haNumber, HNumber - 1 )
+    }
+
+    totalOrder += parseFloat(val.price);  
     
     section.innerHTML += `
-      <div class="content">
+      <div class="content ha-${HNumber -1}">
         <span >${val.desciption}</span>
         <span >R$ ${val.price}</span>
         <a href="#">
@@ -80,7 +83,10 @@ btnSave.addEventListener("click", (e) => {
         </a>
       </div>
     `;
-  });
+
+    
+  });   
+  
   
   totalPrice.innerHTML = "";
   textDesktop.innerHTML = "";
@@ -100,6 +106,8 @@ btnSave.addEventListener("click", (e) => {
     <small>Ver Bandeja</small>
     <strong> ${HNumber - 1} hamburgue(s)</strong>
   `;
+
+ 
   
 });
 
@@ -139,10 +147,10 @@ pay.addEventListener('click', function(event) {
       })
 
       localStorage.setItem("orders", JSON.stringify(arrOrders))
+
+      location.href = "order.html";
     }
 
-  }else{
-    console.log("nada")
   }
   
 });
