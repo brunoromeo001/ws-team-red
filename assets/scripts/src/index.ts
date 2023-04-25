@@ -148,7 +148,7 @@ pay.addEventListener('click', function(event) {
 
       localStorage.setItem("orders", JSON.stringify(arrOrders))
 
-      location.href = "order.html";
+      location.href = "payment.html";
     }
 
   }

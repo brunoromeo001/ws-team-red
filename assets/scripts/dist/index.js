@@ -109,7 +109,7 @@ pay.addEventListener('click', function (event) {
                 date: new Date()
             });
             localStorage.setItem("orders", JSON.stringify(arrOrders));
-            location.href = "order.html";
+            location.href = "payment.html";
         }
     }
 });
